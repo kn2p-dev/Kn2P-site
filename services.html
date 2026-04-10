@@ -8,81 +8,77 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "primary": "#72C6C8", // Updated to MoriPay Mint Theme
-                    "primary-container": "#E0F7F7",
-                    "on-primary-container": "#004D4D",
-                    "secondary": "#0060ac",
-                    "secondary-container": "#E3F2FD",
-                    "surface": "#F7F9FC",
-                    "on-surface": "#191c1e",
-                    "on-surface-variant": "#44474E",
-                    "outline": "#74777F",
-                    "surface-container": "#F0F4F8",
-                    "surface-container-high": "#E6E8EB",
-                    "surface-container-low": "#F2F4F7"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "1rem",
-                    "xl": "1.5rem",
-                    "full": "9999px"
-            },
-            "fontFamily": {
-                    "headline": ["Manrope", "sans-serif"],
-                    "body": ["Inter", "sans-serif"],
-                    "label": ["Inter", "sans-serif"]
-            }
-          },
-        },
+   tailwind.config = {
+    darkMode: "class",
+    theme: {
+     extend: {
+      "colors": {
+          "primary": "#72C6C8", // Updated to MoriPay Mint Theme
+          "primary-container": "#E0F7F7",
+          "on-primary-container": "#004D4D",
+          "secondary": "#0060ac",
+          "secondary-container": "#E3F2FD",
+          "surface": "#F7F9FC",
+          "on-surface": "#191c1e",
+          "on-surface-variant": "#44474E",
+          "outline": "#74777F",
+          "surface-container": "#F0F4F8",
+          "surface-container-high": "#E6E8EB",
+          "surface-container-low": "#F2F4F7"
+      },
+      "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "1rem",
+          "xl": "1.5rem",
+          "full": "9999px"
+      },
+      "fontFamily": {
+          "headline": ["Manrope", "sans-serif"],
+          "body": ["Inter", "sans-serif"],
+          "label": ["Inter", "sans-serif"]
       }
-    </script>
+     },
+    },
+   }
+  </script>
 <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F7F9FC; color: #191c1e; }
-        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
-        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        .mint-gradient { background: linear-gradient(135deg, #72C6C8 0%, #4FA9AB 100%); }
-    </style>
+    body { font-family: 'Inter', sans-serif; background-color: #F7F9FC; color: #191c1e; }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .mint-gradient { background: linear-gradient(135deg, #72C6C8 0%, #4FA9AB 100%); }
+  </style>
 </head>
 <body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm border-b border-gray-100">
-<div class="grid grid-cols-3 items-center max-w-7xl mx-auto px-8 h-20">
+<nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20 relative">
+<div class="flex items-center flex-shrink-0">
+<img alt="K&amp;2P Logo" class="h-8 md:h-10 object-contain" src="logo_horizontal_transparent.png"/>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-10 font-['Manrope'] tracking-tight text-sm font-semibold">
+<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors" href="index.html">홈</a>
+<a class="text-teal-700 dark:text-teal-400 border-b-2 border-teal-600 pb-1" href="services.html">서비스</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors" href="about.html">회사소개</a>
+<!-- <a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors" href="index.html#contact">문의하기</a> -->
+</div>
 <div class="flex items-center">
-<img alt="K&amp;2P Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uixqbinHgs9rj2_nsSS6YQWR_oBjHhlEdzwIHRPgUDzg-3TWjF1JT7_kCsbBZCEHwRSOGVFnXu7Pq7M1sqSHsNstqR9ujdCVOZ1RlvUSVuZhhWJHKD3kfLB2bVjUZRmbd50uQpHa3zcszknoAV0z0lX2UiBveSypwciYIHC5SZVfiTw-i9ZT68rQZy7w4TIwZ6szZ5-M9LSnP7JXh95UWIkJMjIrPJFD0wYmxm7oCpvWrq0rB8V2Kvm424IN0vDjmTOM2Z4NY3fzg"/>
-</div>
-<div class="flex items-center justify-center gap-10 font-['Manrope'] font-bold text-sm tracking-tight">
-<a class="text-[#191c1e] opacity-70 hover:opacity-100 transition-opacity duration-300" href="#">홈</a>
-<a class="text-primary border-b-2 border-primary pb-1" href="#">서비스</a>
-<a class="text-[#191c1e] opacity-70 hover:opacity-100 transition-opacity duration-300" href="#">회사소개</a>
-<a class="text-[#191c1e] opacity-70 hover:opacity-100 transition-opacity duration-300" href="#">문의하기</a>
-</div>
-<div class="flex items-center justify-end">
-<div class="flex items-center bg-surface-container-low p-1.5 rounded-full border border-gray-100">
-<button class="px-3 py-1.5 rounded-full bg-white text-primary text-[10px] font-bold shadow-sm transition-all">KR</button>
-<button class="px-3 py-1.5 rounded-full text-on-surface-variant text-[10px] font-bold hover:text-primary transition-colors">JP</button>
-<button class="px-3 py-1.5 rounded-full text-on-surface-variant text-[10px] font-bold hover:text-primary transition-colors">EN</button>
-</div>
+<!-- 언어 설정 버튼 제거됨 -->
 </div>
 </div>
 </nav>
-<main class="pt-20">
+<main class="pt-32">
 <!-- Hero Section -->
 <section class="relative overflow-hidden bg-surface py-24 md:py-32 border-b border-gray-100">
 <div class="max-w-7xl mx-auto px-8 relative z-10">
 <div class="max-w-3xl">
 <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest mb-6">Korean Travel Companion</span>
 <h1 class="text-5xl md:text-7xl font-extrabold text-on-surface tracking-tight mb-8 leading-[1.1]">
-                    K&amp;2P 서비스
-                </h1>
+          K&amp;2P 서비스
+        </h1>
 <p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed font-medium max-w-2xl">
-                    일본 여행객을 위한 최적화된 기술로<br/>한국에서의 모든 순간을 편리하게 연결합니다.
-                </p>
+          일본 여행객을 위한 최적화된 기술로<br/>한국에서의 모든 순간을 편리하게 연결합니다.
+        </p>
 </div>
 </div>
 <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
@@ -113,7 +109,7 @@
 <div class="space-y-6">
 <div class="bg-white rounded-xl p-5 shadow-sm">
 <div class="flex justify-between items-center mb-4">
-<span class="text-sm font-semibold">JPY → KRW 실시간 환전</span>
+<span class="text-sm ">JPY → KRW 실시간 환전</span>
 <span class="text-xs text-primary font-bold">LIVE 902.45</span>
 </div>
 <div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-full relative">
@@ -145,11 +141,11 @@
 <div class="order-1 lg:order-2 space-y-8">
 <div class="space-y-4">
 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-                            MoriPay<br/>현금 없는 한국 여행의 시작
-                        </h2>
+              MoriPay<br/>현금 없는 한국 여행의 시작
+            </h2>
 <p class="text-lg text-on-surface-variant leading-relaxed">
-                            일본 엔화를 한국 원화로 즉시 환전하여 사용하세요. 복잡한 절차 없이 스마트폰 하나로 한국의 모든 가맹점과 이동 수단을 이용할 수 있습니다.
-                        </p>
+              일본 엔화를 한국 원화로 즉시 환전하여 사용하세요. 복잡한 절차 없이 스마트폰 하나로 한국의 모든 가맹점과 이동 수단을 이용할 수 있습니다.
+            </p>
 </div>
 <div class="space-y-4">
 <div class="flex items-start gap-4">
@@ -171,7 +167,7 @@
 </div>
 </div>
 </div>
-<button class="mint-gradient text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all">MoriPay 시작하기</button>
+<!-- <button class="mint-gradient text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all">MoriPay 시작하기</button> -->
 </div>
 </div>
 </div>
@@ -235,8 +231,8 @@
 <span class="material-symbols-outlined text-[14px]">done</span>
 </div>
 <div>
-<p class="text-[10px] opacity-60">출시 예정</p>
-<p class="text-xs font-bold">2025 서비스 오픈</p>
+<p class="text-primary">출시 예정</p>
+
 </div>
 </div>
 </div>
@@ -245,7 +241,7 @@
 </div>
 </div>
 </section>
-<!-- CTA Section -->
+<!-- <!-- CTA Section -->
 <section class="py-24 bg-surface-container-low overflow-hidden">
 <div class="max-w-7xl mx-auto px-8">
 <div class="mint-gradient rounded-[2.5rem] p-12 md:p-20 text-center text-white relative shadow-2xl">
@@ -257,8 +253,8 @@
 <svg class="w-8 h-8 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M24 10.304c0-4.579-4.823-8.304-10.75-8.304-5.927 0-10.75 3.725-10.75 8.304 0 4.105 3.821 7.538 8.995 8.194.35.076.827.231.948.531.108.267.071.685.035 0.954-.035.268-.168 1.074-.204 1.341-.062.455-.286 1.782 1.233.972 1.519-.81 8.196-4.831 10.158-8.274 1.312-2.308 1.335-3.738 1.335-3.726zm-15.657 3.655h-2.181c-.24 0-.435-.195-.435-.435v-3.739c0-.24.195-.435.435-.435.24 0 .435.195.435.435v3.304h1.746c.24 0 .435.195.435.435 0 .24-.195.435-.435.435zm3.174 0c-.24 0-.435-.195-.435-.435v-3.739c0-.24.195-.435.435-.435.24 0 .435.195.435.435v3.739c0 .24-.195.435-.435.435zm5.176 0h-2.043l-1.631-2.274v1.839c0 .24-.195.435-.435.435-.24 0-.435-.195-.435-.435v-3.739c0-.24.195-.435.435-.435.143 0 .272.07.351.178l1.631 2.273v-1.838c0-.24.195-.435.435-.435.24 0 .435.195.435.435v3.739c0 .24-.195.435-.435.435zm4.076-1.087c0 .24-.195.435-.435.435h-2.181c-.24 0-.435-.195-.435-.435v-3.739c0-.24.195-.435.435-.435h2.181c.24 0 .435.195.435.435s-.195.435-.435.435h-1.746v1.001h1.746c.24 0 .435.195.435.435s-.195.435-.435.435h-1.746v1.001h1.746c.24 0 .435.195.435.435z"></path>
 </svg>
-                            라인으로 실시간 문의하기
-                        </a>
+              라인으로 실시간 문의하기
+            </a>
 </div>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
 <button class="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-lg">앱 다운로드</button>
@@ -270,44 +266,24 @@
 </div>
 </div>
 </div>
-</section>
+</section> -->
 </main>
 <!-- Footer -->
-<footer class="w-full border-t border-gray-100 bg-white pt-16 pb-12">
-<div class="max-w-7xl mx-auto px-8">
-<div class="mb-10">
-<img alt="K&amp;2P Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uixqbinHgs9rj2_nsSS6YQWR_oBjHhlEdzwIHRPgUDzg-3TWjF1JT7_kCsbBZCEHwRSOGVFnXu7Pq7M1sqSHsNstqR9ujdCVOZ1RlvUSVuZhhWJHKD3kfLB2bVjUZRmbd50uQpHa3zcszknoAV0z0lX2UiBveSypwciYIHC5SZVfiTw-i9ZT68rQZy7w4TIwZ6szZ5-M9LSnP7JXh95UWIkJMjIrPJFD0wYmxm7oCpvWrq0rB8V2Kvm424IN0vDjmTOM2Z4NY3fzg"/>
+<footer class="w-full py-12 px-6 bg-slate-50 border-t border-gray-100">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8 text-left">
+<div class="flex-1 space-y-4">
+<div class="mb-4">
+<img alt="K&amp;2P Logo" class="h-8 md:h-10 object-contain" src="logo_horizontal_transparent.png"/>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-<div class="space-y-1">
-<p class="text-xs text-[#191c1e]/60 leading-relaxed">
-                    상호명: (주)케이앤투피 (K&amp;2P) | 대표자: 박진수 | 사업자등록번호: 551-87-03073
-                </p>
-<p class="text-xs text-[#191c1e]/60 leading-relaxed">
-                    주소: 서울특별시 성동구 뚝섬로1길 25, 한라에코밸리 309호
-                </p>
-<p class="text-xs text-[#191c1e]/60 leading-relaxed">
-                    전화번호: 02-498-3001 | 이메일: help@kn2p.co.kr | 라인 문의 (LINE ID: MoriPay_JP)
-                </p>
-<p class="text-xs text-[#191c1e]/40 pt-4 font-medium">
-                    © 2025 K&amp;2P. All Rights Reserved.
-                </p>
+<div class="font-['Inter'] text-xs leading-relaxed text-slate-500 space-y-1">
+<p>상호명: (주)케이앤투피 | 대표자: 박진수 | 사업자등록번호: 551-87-03073</p>
+<p>주소: 서울특별시 성동구 뚝섬로1길 25, 한라에코밸리 309호 케이앤투피</p>
+<p>전화번호: 02-498-3001</p>
+<p class="pt-4 font-medium">© 2025 K&amp;2P. All Rights Reserved.</p>
+</div>
 </div>
 <div class="flex flex-col md:items-end gap-6">
-<div class="flex gap-8 items-center">
-<a class="text-xs text-[#191c1e]/60 hover:text-primary transition-colors font-semibold" href="#">개인정보처리방침</a>
-<a class="text-xs text-[#191c1e]/60 hover:text-primary transition-colors font-semibold" href="#">이용약관</a>
-<a class="text-xs text-[#191c1e]/60 hover:text-primary transition-colors font-semibold" href="#">고객센터</a>
-</div>
-<div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-[#191c1e]/60 hover:bg-primary/20 hover:text-primary transition-all cursor-pointer">
-<span class="material-symbols-outlined text-base">share</span>
-</div>
-<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-[#191c1e]/60 hover:bg-primary/20 hover:text-primary transition-all cursor-pointer">
-<span class="material-symbols-outlined text-base">language</span>
-</div>
-</div>
-</div>
+<!-- 푸터 링크 및 버튼 제거됨 -->
 </div>
 </div>
 </footer>

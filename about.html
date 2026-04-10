@@ -8,126 +8,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "primary-container": "#72c6c8",
-                      "surface-tint": "#00696b",
-                      "primary": "#00696b",
-                      "on-background": "#191c1e",
-                      "primary-fixed-dim": "#80d4d6",
-                      "on-primary-fixed-variant": "#004f51",
-                      "inverse-on-surface": "#eff1f4",
-                      "surface-container-high": "#e6e8eb",
-                      "on-tertiary-container": "#494949",
-                      "on-error": "#ffffff",
-                      "on-surface-variant": "#3e4949",
-                      "surface-container-lowest": "#ffffff",
-                      "inverse-primary": "#80d4d6",
-                      "tertiary": "#5f5e5e",
-                      "on-primary-container": "#005254",
-                      "on-tertiary": "#ffffff",
-                      "secondary-fixed-dim": "#a4c9ff",
-                      "secondary-fixed": "#d4e3ff",
-                      "on-primary": "#ffffff",
-                      "error": "#ba1a1a",
-                      "error-container": "#ffdad6",
-                      "surface": "#f7f9fc",
-                      "primary-fixed": "#9df1f3",
-                      "surface-dim": "#d8dadd",
-                      "outline-variant": "#bdc9c8",
-                      "surface-container-highest": "#e0e3e6",
-                      "secondary": "#0060ac",
-                      "on-tertiary-fixed-variant": "#474746",
-                      "on-secondary": "#ffffff",
-                      "tertiary-fixed-dim": "#c8c6c5",
-                      "secondary-container": "#68abff",
-                      "on-tertiary-fixed": "#1c1b1b",
-                      "surface-container-low": "#f2f4f7",
-                      "inverse-surface": "#2d3133",
-                      "on-error-container": "#93000a",
-                      "on-secondary-fixed-variant": "#004883",
-                      "outline": "#6e7979",
-                      "on-surface": "#191c1e",
-                      "tertiary-container": "#bab8b7",
-                      "surface-container": "#eceef1",
-                      "surface-bright": "#f7f9fc",
-                      "on-secondary-container": "#003e73",
-                      "surface-variant": "#e0e3e6",
-                      "on-secondary-fixed": "#001c39",
-                      "tertiary-fixed": "#e5e2e1",
-                      "on-primary-fixed": "#002021",
-                      "background": "#f7f9fc"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "1rem",
-                      "xl": "1.5rem",
-                      "full": "9999px"
-              },
-              "fontFamily": {
-                      "headline": ["Manrope"],
-                      "body": ["Inter"],
-                      "label": ["Inter"]
-              }
-            },
-          },
-        }
-    </script>
+    tailwind.config = {
+     darkMode: "class",
+     theme: {
+      extend: {
+       "colors": {
+           "primary-container": "#72c6c8",
+           "surface-tint": "#00696b",
+           "primary": "#00696b",
+           "on-background": "#191c1e",
+           "primary-fixed-dim": "#80d4d6",
+           "on-primary-fixed-variant": "#004f51",
+           "inverse-on-surface": "#eff1f4",
+           "surface-container-high": "#e6e8eb",
+           "on-tertiary-container": "#494949",
+           "on-error": "#ffffff",
+           "on-surface-variant": "#3e4949",
+           "surface-container-lowest": "#ffffff",
+           "inverse-primary": "#80d4d6",
+           "tertiary": "#5f5e5e",
+           "on-primary-container": "#005254",
+           "on-tertiary": "#ffffff",
+           "secondary-fixed-dim": "#a4c9ff",
+           "secondary-fixed": "#d4e3ff",
+           "on-primary": "#ffffff",
+           "error": "#ba1a1a",
+           "error-container": "#ffdad6",
+           "surface": "#f7f9fc",
+           "primary-fixed": "#9df1f3",
+           "surface-dim": "#d8dadd",
+           "outline-variant": "#bdc9c8",
+           "surface-container-highest": "#e0e3e6",
+           "secondary": "#0060ac",
+           "on-tertiary-fixed-variant": "#474746",
+           "on-secondary": "#ffffff",
+           "tertiary-fixed-dim": "#c8c6c5",
+           "secondary-container": "#68abff",
+           "on-tertiary-fixed": "#1c1b1b",
+           "surface-container-low": "#f2f4f7",
+           "inverse-surface": "#2d3133",
+           "on-error-container": "#93000a",
+           "on-secondary-fixed-variant": "#004883",
+           "outline": "#6e7979",
+           "on-surface": "#191c1e",
+           "tertiary-container": "#bab8b7",
+           "surface-container": "#eceef1",
+           "surface-bright": "#f7f9fc",
+           "on-secondary-container": "#003e73",
+           "surface-variant": "#e0e3e6",
+           "on-secondary-fixed": "#001c39",
+           "tertiary-fixed": "#e5e2e1",
+           "on-primary-fixed": "#002021",
+           "background": "#f7f9fc"
+       },
+       "borderRadius": {
+           "DEFAULT": "0.25rem",
+           "lg": "1rem",
+           "xl": "1.5rem",
+           "full": "9999px"
+       },
+       "fontFamily": {
+           "headline": ["Manrope"],
+           "body": ["Inter"],
+           "label": ["Inter"]
+       }
+      },
+     },
+    }
+  </script>
 <style>
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .text-mint { color: #72C6C8; }
-        .bg-mint { background-color: #72C6C8; }
-    </style>
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .text-mint { color: #72C6C8; }
+    .bg-mint { background-color: #72C6C8; }
+  </style>
 </head>
 <body class="bg-white text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopNavBar -->
 <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20 relative">
 <div class="flex items-center flex-shrink-0">
-<img alt="K&amp;2P Logo" class="h-8 md:h-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uixqbinHgs9rj2_nsSS6YQWR_oBjHhlEdzwIHRPgUDzg-3TWjF1JT7_kCsbBZCEHwRSOGVFnXu7Pq7M1sqSHsNstqR9ujdCVOZ1RlvUSVuZhhWJHKD3kfLB2bVjUZRmbd50uQpHa3zcszknoAV0z0lX2UiBveSypwciYIHC5SZVfiTw-i9ZT68rQZy7w4TIwZ6szZ5-M9LSnP7JXh95UWIkJMjIrPJFD0wYmxm7oCpvWrq0rB8V2Kvm424IN0vDjmTOM2Z4NY3fzg"/>
+<img alt="K&amp;2P Logo" class="h-8 md:h-10 object-contain" src="logo_horizontal_transparent.png"/>
 </div>
-<div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-10 font-['Manrope'] font-semibold tracking-tight text-sm">
-<a class="text-slate-600 hover:text-teal-600 transition-colors" href="#">홈</a>
-<a class="text-slate-600 hover:text-teal-600 transition-colors" href="#">서비스</a>
-<a class="text-teal-700 border-b-2 border-teal-600 pb-1" href="#">회사소개</a>
-<a class="text-slate-600 hover:text-teal-600 transition-colors" href="#">문의하기</a>
+<div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-10 font-['Manrope'] tracking-tight text-sm font-semibold">
+<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors" href="index.html">홈</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors" href="services.html">서비스</a>
+<a class="text-teal-700 dark:text-teal-400 border-b-2 border-teal-600 pb-1" href="about.html">회사소개</a>
+<!-- <a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors" href="index.html#contact">문의하기</a> -->
 </div>
 <div class="flex items-center">
-<div class="flex items-center bg-slate-50 border border-slate-200 rounded-full px-1 py-1">
-<button class="px-3 py-1.5 text-xs font-bold rounded-full bg-white shadow-sm text-teal-600">KR</button>
-<button class="px-3 py-1.5 text-xs font-semibold rounded-full text-slate-400 hover:text-slate-600 transition-colors">JP</button>
-<button class="px-3 py-1.5 text-xs font-semibold rounded-full text-slate-400 hover:text-slate-600 transition-colors">EN</button>
-</div>
+<!-- 언어 설정 버튼 제거됨 -->
 </div>
 </div>
 </nav>
-<main>
+<main class="pt-32">
 <!-- Hero Section -->
 <section class="relative pt-48 pb-32 overflow-hidden bg-white">
 <div class="max-w-7xl mx-auto px-8 relative z-10">
 <div class="max-w-4xl">
 <span class="text-mint font-bold tracking-[0.2em] text-sm uppercase mb-6 block font-label">TRAVEL TECH INNOVATOR</span>
 <h1 class="font-headline text-6xl md:text-8xl font-extrabold text-on-surface tracking-tighter leading-tight mb-8">
-                        K&amp;2P
-                    </h1>
+            K&amp;2P
+          </h1>
 <p class="text-on-surface-variant text-2xl md:text-3xl leading-snug font-light max-w-3xl">
-                        기술로 여행의 가치를 더하고,<br/>
-                        국경 없는 심리스(Seamless)한 연결을 꿈꿉니다.
-                    </p>
+            기술로 여행의 가치를 더하고,<br/>
+            국경 없는 심리스(Seamless)한 연결을 꿈꿉니다.
+          </p>
 </div>
 </div>
 <div class="mt-24 w-full h-[600px] bg-slate-100 overflow-hidden">
@@ -144,14 +140,14 @@
 <div>
 <h3 class="text-3xl font-bold mb-6">Mission</h3>
 <p class="text-xl text-on-surface-variant leading-relaxed font-light">
-                                    한국을 방문하는 일본인 여행객들이 마주하는 모든 불편함을 <span class="font-bold text-on-surface">혁신적인 핀테크와 플랫폼 기술</span>로 해결하며, 최상의 여행 경험을 선사합니다.
-                                </p>
+                  한국을 방문하는 일본인 여행객들이 마주하는 모든 불편함을 <span class="font-bold text-on-surface">혁신적인 핀테크와 플랫폼 기술</span>로 해결하며, 최상의 여행 경험을 선사합니다.
+                </p>
 </div>
 <div>
 <h3 class="text-3xl font-bold mb-6">Vision</h3>
 <p class="text-xl text-on-surface-variant leading-relaxed font-light">
-                                    한일 양국 간의 경제적, 문화적 장벽을 허물고 <span class="font-bold text-on-surface">국경 없는 서비스 연결</span>을 통해 누구나 자유롭게 이동하고 소비하는 디지털 생태계를 구축합니다.
-                                </p>
+                  한일 양국 간의 경제적, 문화적 장벽을 허물고 <span class="font-bold text-on-surface">국경 없는 서비스 연결</span>을 통해 누구나 자유롭게 이동하고 소비하는 디지털 생태계를 구축합니다.
+                </p>
 </div>
 </div>
 </div>
@@ -183,8 +179,8 @@
 </div>
 <h4 class="text-2xl font-bold mb-4">Advanced Fintech Technology</h4>
 <p class="text-on-surface-variant leading-relaxed">
-                            블록체인 기반의 환전 솔루션과 실시간 API 연동 기술을 통해, 오프라인과 온라인을 넘나드는 가장 안전하고 빠른 결제 인프라를 제공합니다. 전통 금융의 한계를 뛰어넘는 효율성을 추구합니다.
-                        </p>
+              블록체인 기반의 환전 솔루션과 실시간 API 연동 기술을 통해, 오프라인과 온라인을 넘나드는 가장 안전하고 빠른 결제 인프라를 제공합니다. 전통 금융의 한계를 뛰어넘는 효율성을 추구합니다.
+            </p>
 </div>
 <div class="bg-white p-12 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
 <div class="mb-8">
@@ -192,8 +188,8 @@
 </div>
 <h4 class="text-2xl font-bold mb-4">Deep Market Insight</h4>
 <p class="text-on-surface-variant leading-relaxed">
-                            일본 관광객의 소비 패턴과 여행 니즈에 대한 깊은 이해를 바탕으로 최적화된 UX를 설계합니다. 단순한 기술 제공을 넘어, 타겟 시장의 문화적 정서를 서비스에 녹여냅니다.
-                        </p>
+              일본 관광객의 소비 패턴과 여행 니즈에 대한 깊은 이해를 바탕으로 최적화된 UX를 설계합니다. 단순한 기술 제공을 넘어, 타겟 시장의 문화적 정서를 서비스에 녹여냅니다.
+            </p>
 </div>
 </div>
 </div>
@@ -212,21 +208,21 @@
 <span class="text-mint font-bold text-sm tracking-widest block mb-4 uppercase">OUR PRODUCT</span>
 <h2 class="font-headline text-5xl font-extrabold mb-8">MoriPay: <br/><span class="text-on-surface-variant font-light">Your Travel Companion</span></h2>
 <p class="text-xl text-on-surface-variant leading-relaxed mb-8 font-light">
-                            MoriPay는 단순한 결제 앱 그 이상입니다. 일본 여행객들이 낯선 땅 한국에서 느끼는 불안함을 해소하고, 여행의 매 순간을 즐거움으로 채워주는 <span class="font-bold text-on-surface">'지능형 여행 컨시어지'</span>입니다.
-                        </p>
+              MoriPay는 단순한 결제 앱 그 이상입니다. 일본 여행객들이 낯선 땅 한국에서 느끼는 불안함을 해소하고, 여행의 매 순간을 즐거움으로 채워주는 <span class="font-bold text-on-surface">'지능형 여행 컨시어지'</span>입니다.
+            </p>
 <ul class="space-y-4">
 <li class="flex items-center gap-3 text-on-surface font-medium">
 <span class="material-symbols-outlined text-mint">check_circle</span>
-                                엔화 기반의 실시간 모바일 환전 및 간편 결제
-                            </li>
+                엔화 기반의 실시간 모바일 환전 및 간편 결제
+              </li>
 <li class="flex items-center gap-3 text-on-surface font-medium">
 <span class="material-symbols-outlined text-mint">check_circle</span>
-                                현지 맛집, 쇼핑 정보를 아우르는 맞춤형 큐레이션
-                            </li>
+                현지 맛집, 쇼핑 정보를 아우르는 맞춤형 큐레이션
+              </li>
 <li class="flex items-center gap-3 text-on-surface font-medium">
 <span class="material-symbols-outlined text-mint">check_circle</span>
-                                언어와 문화의 장벽을 낮추는 스마트 트래블 가이드
-                            </li>
+                언어와 문화의 장벽을 낮추는 스마트 트래블 가이드
+              </li>
 </ul>
 </div>
 </div>
@@ -244,12 +240,12 @@
 </div>
 <div class="text-center">
 <h4 class="text-3xl font-bold text-on-surface mb-2">박진수</h4>
-<p class="text-mint font-semibold mb-10 tracking-wide uppercase text-sm">CEO &amp; Founder, K&amp;2P</p>
+<p class="text-mint mb-10 tracking-wide uppercase text-sm">CEO &amp; Founder, K&amp;2P</p>
 <div class="relative">
 <span class="material-symbols-outlined absolute -top-10 left-0 text-slate-200 text-6xl opacity-50 -z-10">format_quote</span>
 <blockquote class="text-on-surface-variant text-2xl italic leading-relaxed font-light px-4">
-                                "K&amp;2P는 단순한 결제 서비스를 넘어, 국경을 넘나드는 여행자들이 그 나라의 문화를 온전히 즐길 수 있도록 기술적 인프라를 구축합니다. 한국과 일본을 잇는 가장 신뢰받는 디지털 브릿지가 되겠습니다."
-                            </blockquote>
+                "K&amp;2P는 단순한 결제 서비스를 넘어, 국경을 넘나드는 여행자들이 그 나라의 문화를 온전히 즐길 수 있도록 기술적 인프라를 구축합니다. 한국과 일본을 잇는 가장 신뢰받는 디지털 브릿지가 되겠습니다."
+              </blockquote>
 </div>
 </div>
 </div>
@@ -261,29 +257,17 @@
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8 text-left">
 <div class="flex-1 space-y-4">
 <div class="mb-4">
-<img alt="K&amp;2P Logo" class="h-8 md:h-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uixqbinHgs9rj2_nsSS6YQWR_oBjHhlEdzwIHRPgUDzg-3TWjF1JT7_kCsbBZCEHwRSOGVFnXu7Pq7M1sqSHsNstqR9ujdCVOZ1RlvUSVuZhhWJHKD3kfLB2bVjUZRmbd50uQpHa3zcszknoAV0z0lX2UiBveSypwciYIHC5SZVfiTw-i9ZT68rQZy7w4TIwZ6szZ5-M9LSnP7JXh95UWIkJMjIrPJFD0wYmxm7oCpvWrq0rB8V2Kvm424IN0vDjmTOM2Z4NY3fzg"/>
+<img alt="K&amp;2P Logo" class="h-8 md:h-10 object-contain" src="logo_horizontal_transparent.png"/>
 </div>
 <div class="font-['Inter'] text-xs leading-relaxed text-slate-500 space-y-1">
-<p>상호명: (주)케이앤투피 (K&amp;2P) | 대표자: 박진수 | 사업자등록번호: 551-87-03073</p>
-<p>주소: 서울특별시 성동구 뚝섬로1길 25, 한라에코밸리 309호</p>
-<p>전화번호: 02-498-3001 | 이메일: help@kn2p.co.kr | 라인 문의 (LINE ID: MoriPay_JP)</p>
+<p>상호명: (주)케이앤투피 | 대표자: 박진수 | 사업자등록번호: 551-87-03073</p>
+<p>주소: 서울특별시 성동구 뚝섬로1길 25, 한라에코밸리 309호 케이앤투피</p>
+<p>전화번호: 02-498-3001</p>
 <p class="pt-4 font-medium">© 2025 K&amp;2P. All Rights Reserved.</p>
 </div>
 </div>
 <div class="flex flex-col md:items-end gap-6">
-<div class="flex gap-8 items-center">
-<a class="font-['Inter'] text-xs text-slate-400 hover:text-teal-500 transition-colors" href="#">이용약관</a>
-<a class="font-['Inter'] text-xs text-slate-400 hover:text-teal-500 transition-colors underline font-medium text-teal-600" href="#">개인정보처리방침</a>
-<a class="font-['Inter'] text-xs text-slate-400 hover:text-teal-500 transition-colors" href="#">고객센터</a>
-</div>
-<div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-slate-400 hover:text-teal-600 transition-colors cursor-pointer opacity-80 hover:opacity-100">
-<span class="material-symbols-outlined text-base">share</span>
-</div>
-<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-slate-400 hover:text-teal-600 transition-colors cursor-pointer opacity-80 hover:opacity-100">
-<span class="material-symbols-outlined text-base">language</span>
-</div>
-</div>
+<!-- 푸터 링크 및 버튼 제거됨 -->
 </div>
 </div>
 </footer>
