@@ -9,6 +9,7 @@ _src/content.py; shared styles in assets/css/. Output HTML files are
 committed so GitHub Pages can serve them without a build step.
 """
 import html
+import json
 import os
 import sys
 
@@ -40,7 +41,11 @@ def rel(lang, target_lang, page):
     return up + LANG_DIR[target_lang] + file
 
 
+ICONS = set()  # Material Symbols used on the site; the font request is subset to these
+
+
 def icon(name):
+    ICONS.add(name)
     return f'<span class="icon" aria-hidden="true">{name}</span>'
 
 
@@ -65,19 +70,18 @@ ORG = {
 }
 
 
+WEBSITE = {
+    "@type": "WebSite",
+    "@id": SITE + "/#website",
+    "url": SITE + "/",
+    "name": "K&2P",
+    "inLanguage": ["ko", "en", "ja"],
+    "publisher": {"@id": SITE + "/#organization"},
+}
+
+
 def jsonld(lang, page, title, desc):
-    import json
-    graph = [ORG]
-    if page == "index":
-        graph.append({
-            "@type": "WebSite",
-            "@id": SITE + "/#website",
-            "url": SITE + "/",
-            "name": "K&2P",
-            "inLanguage": ["ko", "en", "ja"],
-            "publisher": {"@id": SITE + "/#organization"},
-        })
-    graph.append({
+    graph = [ORG, WEBSITE, {
         "@type": "AboutPage" if page == "about" else "WebPage",
         "@id": page_url(lang, page) + "#webpage",
         "url": page_url(lang, page),
@@ -86,7 +90,7 @@ def jsonld(lang, page, title, desc):
         "inLanguage": lang,
         "isPartOf": {"@id": SITE + "/#website"},
         "about": {"@id": SITE + "/#organization"},
-    })
+    }]
     data = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
     return f'<script type="application/ld+json">{data}</script>'
 
@@ -139,7 +143,7 @@ def head(lang, page, title, desc):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;{fonts}&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=__ICON_NAMES__&amp;display=block">
 <link rel="stylesheet" href="{up}assets/css/astryx-reset.css">
 <link rel="stylesheet" href="{up}assets/css/astryx-tokens.css">
 <link rel="stylesheet" href="{up}assets/css/kn2p-theme.css">
@@ -152,23 +156,25 @@ def head(lang, page, title, desc):
 def header(lang, page):
     c = COMMON[lang]
     up = "../" if LANG_DIR[lang] else ""
+    cur_page = ' aria-current="page"'
+    cur_lang = ' aria-current="true"'
     nav = "".join(
-        f'<a href="{rel(lang, lang, p)}"{" aria-current=\"page\"" if p == page else ""}>{esc(c["nav"][p])}</a>'
+        f'<a href="{rel(lang, lang, p)}"{cur_page if p == page else ""}>{esc(c["nav"][p])}</a>'
         for p in PAGES
     )
     switch = "".join(
         f'<a href="{rel(lang, l, page)}" hreflang="{l}" lang="{l}" title="{esc(COMMON[l]["lang_label"])}"'
-        f'{" aria-current=\"true\"" if l == lang else ""}>{SHORT[l]}</a>'
+        f'{cur_lang if l == lang else ""}>{SHORT[l]}</a>'
         for l in LANGS
     )
     return f"""<a class="skip-link" href="#main">{esc(c['skip'])}</a>
 <header class="site-header">
   <div class="container">
     <a class="brand" href="{rel(lang, lang, 'index')}"><img src="{up}logo_horizontal_transparent.png" alt="K&amp;2P" width="94" height="30"></a>
-    <nav class="nav" id="site-nav" aria-label="Main">{nav}<a class="nav-ext" href="{MORIPAY}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} ↗</a></nav>
+    <nav class="nav" id="site-nav" aria-label="Main">{nav}<a class="nav-ext" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} ↗</a></nav>
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Language">{switch}</div>
-      <a class="btn btn-primary btn-sm btn-cta" href="{MORIPAY}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} {icon('arrow_outward')}</a>
+      <a class="btn btn-primary btn-sm btn-cta" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} {icon('arrow_outward')}</a>
       <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="{esc(c['menu'])}">{icon('menu')}</button>
     </div>
   </div>
@@ -190,7 +196,7 @@ def footer(lang):
   <div class="container">
     <div class="top">
       <a class="logo-wrap" href="{rel(lang, lang, 'index')}"><img src="{up}logo_horizontal_transparent.png" alt="K&amp;2P" width="75" height="24"></a>
-      <nav aria-label="Footer">{nav}<a href="{MORIPAY}" target="_blank" rel="noopener">{esc(c['footer_moripay'])} ↗</a></nav>
+      <nav aria-label="Footer">{nav}<a href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['footer_moripay'])} ↗</a></nav>
     </div>
     <nav class="legal" aria-label="Legal">{legal}</nav>
     <div class="biz"><div>{biz}</div><div>{biz2}<span>{esc(x['email_label'])}: <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a></span></div></div>
@@ -259,8 +265,8 @@ def contact_section(lang):
 </section>"""
 
 
-def btn_ext(label, cls="btn-light"):
-    return f'<a class="btn {cls}" href="{MORIPAY}" target="_blank" rel="noopener">{label} {icon("arrow_outward")}</a>'
+def btn_ext(lang, label, cls="btn-light"):
+    return f'<a class="btn {cls}" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{label} {icon("arrow_outward")}</a>'
 
 
 # ───────────────────────────────────────────────── pages
@@ -276,8 +282,9 @@ def build_index(lang):
         f'<article class="card"><div class="card-icon">{icon(ic)}</div><h3>{h}</h3><p>{p}</p></article>'
         for ic, h, p in t["values"]
     )
+    badge = f'<span class="badge">{t["soon"]}</span>'
     eco = "".join(
-        f'<article class="card{" soon" if soon else ""}">{f"<span class=badge>{t["soon"]}</span>" if soon else ""}'
+        f'<article class="card{" soon" if soon else ""}">{badge if soon else ""}'
         f'<div class="card-icon">{icon(ic)}</div><h3>{h}</h3><p>{p}</p><span class="tag">{icon("schedule" if soon else "check")}{tag}</span></article>'
         for ic, h, p, tag, soon in t["eco"]
     )
@@ -323,7 +330,7 @@ def build_index(lang):
     <div class="grid grid-4">{eco}</div>
   </div>
 </section>
-{cta_band(t['cta_h2'], t['cta_p'], [btn_ext(t['cta_btn1']), f'<a class="btn btn-ghost-light" href="{rel(lang, lang, "services")}">{t["cta_btn2"]}</a>'])}
+{cta_band(t['cta_h2'], t['cta_p'], [btn_ext(lang, t['cta_btn1']), f'<a class="btn btn-ghost-light" href="{rel(lang, lang, "services")}">{t["cta_btn2"]}</a>'])}
 """
     return t, body
 
@@ -332,8 +339,8 @@ def build_services(lang):
     t = SERVICES[lang]
     up = "../" if LANG_DIR[lang] else ""
     eco = "".join(
-        f'<article class="card"><div class="card-icon">{icon(ic)}</div><span class="tag" style="margin-top:20px">{tag}</span>'
-        f'<h3 style="margin-top:6px">{h}</h3><p>{p}</p>{checklist(items)}</article>'
+        f'<article class="card"><div class="card-icon">{icon(ic)}</div><span class="tag tag-top">{tag}</span>'
+        f'<h3 class="h3-tight">{h}</h3><p>{p}</p>{checklist(items)}</article>'
         for ic, tag, h, p, items in t["eco"]
     )
     body = f"""
@@ -359,7 +366,7 @@ def build_services(lang):
     <div class="grid grid-2">{eco}</div>
   </div>
 </section>
-{cta_band(f'<span style="display:block;font-size:.8125rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8;margin-bottom:10px">{t["cta_eyebrow"]}</span>' + t['cta_h2'], t['cta_p'], [f'<a class="btn btn-light" href="{rel(lang, lang, "guide")}">{t["cta_btn"]} {icon("arrow_forward")}</a>'])}
+{cta_band(f'<span class="cta-eyebrow">{t["cta_eyebrow"]}</span>' + t['cta_h2'], t['cta_p'], [f'<a class="btn btn-light" href="{rel(lang, lang, "guide")}">{t["cta_btn"]} {icon("arrow_forward")}</a>'])}
 """
     return t, body
 
@@ -375,8 +382,9 @@ def build_guide(lang):
         f'<article class="card"><div class="card-icon">{icon(ic)}</div><h3>{h}</h3><p>{p}</p>{checklist(items)}</article>'
         for ic, h, p, items in t["tips"]
     )
+    chev = icon("expand_more").replace('class="icon"', 'class="icon chev"')
     faq = "".join(
-        f'<details{" open" if i == 0 else ""}><summary><span class="q">Q.</span><span>{q}</span>{icon("expand_more").replace("class=\"icon\"", "class=\"icon chev\"")}</summary><div class="a">{a}</div></details>'
+        f'<details{" open" if i == 0 else ""}><summary><span class="q">Q.</span><span>{q}</span>{chev}</summary><div class="a">{a}</div></details>'
         for i, (q, a) in enumerate(t["faq"])
     )
     body = f"""
@@ -406,7 +414,7 @@ def build_guide(lang):
   </div>
 </section>
 {contact_section(lang)}
-{cta_band(t['cta_h2'], t['cta_p'], [btn_ext(t['cta_btn1']), f'<a class="btn btn-ghost-light" href="{rel(lang, lang, "services")}">{t["cta_btn2"]}</a>'])}
+{cta_band(t['cta_h2'], t['cta_p'], [btn_ext(lang, t['cta_btn1']), f'<a class="btn btn-ghost-light" href="{rel(lang, lang, "services")}">{t["cta_btn2"]}</a>'])}
 """
     return t, body
 
@@ -455,7 +463,7 @@ def build_about(lang):
 <section class="section">
   <div class="container">
     <span class="eyebrow">{t['ceo_eyebrow']}</span>
-    <div class="ceo" style="margin-top:16px">
+    <div class="ceo">
       <div class="avatar" aria-hidden="true">{t['ceo_initial']}</div>
       <div>
         <blockquote>{t['ceo_quote']}</blockquote>
@@ -478,8 +486,8 @@ def build_about(lang):
 BUILDERS = {"index": build_index, "services": build_services, "guide": build_guide, "about": build_about}
 
 
-
 def write_extras():
+    """Write robots.txt, sitemap.xml and llms.txt; return the 404 page HTML."""
     with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
     urls = []
@@ -513,7 +521,7 @@ def write_extras():
     body404 = """
 <section class="page-hero"><div class="container">
   <span class="eyebrow">404</span>
-  <h1>페이지를 찾을 수 없습니다<br><span style="font-size:.5em;font-weight:600;color:var(--color-text-secondary)">Page not found · ページが見つかりません</span></h1>
+  <h1>페이지를 찾을 수 없습니다<br><span class="h1-sub">Page not found · ページが見つかりません</span></h1>
   <div class="hero-actions">
     <a class="btn btn-primary" href="/">홈으로</a>
     <a class="btn btn-secondary" href="/en/">English</a>
@@ -526,23 +534,27 @@ def write_extras():
     doc = "\n".join(l for l in doc.split("\n") if 'hreflang=' not in l or 'lang-switch' in l)
     for a in ('href="assets/', 'src="assets/', 'href="logo_', 'src="logo_', 'href="index.html', 'href="services.html', 'href="guide.html', 'href="about.html', 'href="en/', 'href="ja/'):
         doc = doc.replace(a, a.replace('="', '="/'))
-    with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8") as f:
-        f.write(doc)
+    return doc
+
+
+def write(path, doc):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(doc.replace("__ICON_NAMES__", ",".join(sorted(ICONS))))
 
 
 def main():
-    count = 0
+    docs = {}
     for lang in LANGS:
         outdir = os.path.join(ROOT, LANG_DIR[lang])
         os.makedirs(outdir, exist_ok=True)
         for page in PAGES:
             t, body = BUILDERS[page](lang)
-            doc = head(lang, page, t["title"], t["desc"]) + header(lang, page) + body + footer(lang)
-            with open(os.path.join(outdir, page + ".html"), "w", encoding="utf-8") as f:
-                f.write(doc)
-            count += 1
-    write_extras()
-    print(f"built {count} pages + robots.txt, sitemap.xml, llms.txt, 404.html")
+            docs[os.path.join(outdir, page + ".html")] = head(lang, page, t["title"], t["desc"]) + header(lang, page) + body + footer(lang)
+    docs[os.path.join(ROOT, "404.html")] = write_extras()
+    # icons are collected while rendering, so files are written only after every page is built
+    for path, doc in docs.items():
+        write(path, doc)
+    print(f"built {len(docs) - 1} pages + 404.html, robots.txt, sitemap.xml, llms.txt")
 
 
 if __name__ == "__main__":
