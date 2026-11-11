@@ -13,7 +13,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from content import ABOUT, COMMON, GUIDE, HOME, LANGS, SERVICES  # noqa: E402
+from content import ABOUT, COMMON, EXTRA, GUIDE, HOME, LANGS, LINE_URL, MP_BASE, SERVICES, SUPPORT_EMAIL  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://kn2p.co.kr"
@@ -183,6 +183,8 @@ def footer(lang):
     nav = "".join(f'<a href="{rel(lang, lang, p)}">{esc(c["nav"][p])}</a>' for p in PAGES)
     biz = "".join(f"<span>{esc(x)}</span>" for x in c["biz"])
     biz2 = "".join(f"<span>{esc(x)}</span>" for x in c["biz2"])
+    x = EXTRA[lang]
+    legal = "".join(f'<a href="{MP_BASE[lang]}/legal/{slug}" target="_blank" rel="noopener">{esc(label)}</a>' for slug, label in x["legal"])
     return f"""</main>
 <footer class="site-footer">
   <div class="container">
@@ -190,7 +192,8 @@ def footer(lang):
       <a class="logo-wrap" href="{rel(lang, lang, 'index')}"><img src="{up}logo_horizontal_transparent.png" alt="K&amp;2P" width="75" height="24"></a>
       <nav aria-label="Footer">{nav}<a href="{MORIPAY}" target="_blank" rel="noopener">{esc(c['footer_moripay'])} ↗</a></nav>
     </div>
-    <div class="biz"><div>{biz}</div><div>{biz2}</div></div>
+    <nav class="legal" aria-label="Legal">{legal}</nav>
+    <div class="biz"><div>{biz}</div><div>{biz2}<span>{esc(x['email_label'])}: <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a></span></div></div>
     <p class="copy">{esc(c['copyright'])}</p>
   </div>
 </footer>
@@ -240,6 +243,22 @@ def cta_band(h2, p, buttons):
     return f'<section class="section"><div class="container"><div class="cta-band"><div><h2>{h2}</h2><p>{p}</p></div><div class="actions">{btns}</div></div></div></section>'
 
 
+def contact_section(lang):
+    x = EXTRA[lang]
+    return f"""<section class="section" id="contact">
+  <div class="container">
+    {section_head(x['contact_eyebrow'], x['contact_h2'], x['contact_p'], center=True)}
+    <div class="grid grid-2 contact">
+      <article class="card"><div class="card-icon">{icon('chat')}</div><h3>{x['line_t']}</h3><p>{x['line_d']}</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="{LINE_URL}" target="_blank" rel="noopener">{x['line_btn']} {icon('arrow_outward')}</a></div></article>
+      <article class="card"><div class="card-icon">{icon('mail')}</div><h3>{x['mail_t']}</h3><p>{x['mail_d']}</p>
+        <p class="mail"><a class="link" href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a></p>
+        <div class="hero-actions"><a class="btn btn-secondary" href="{MP_BASE[lang]}/contact" target="_blank" rel="noopener">{x['mail_btn']} {icon('arrow_outward')}</a></div></article>
+    </div>
+  </div>
+</section>"""
+
+
 def btn_ext(label, cls="btn-light"):
     return f'<a class="btn {cls}" href="{MORIPAY}" target="_blank" rel="noopener">{label} {icon("arrow_outward")}</a>'
 
@@ -273,6 +292,7 @@ def build_index(lang):
         <a class="btn btn-primary" href="{rel(lang, lang, 'guide')}">{t['btn1']} {icon('arrow_forward')}</a>
         <a class="btn btn-secondary" href="{rel(lang, lang, 'about')}">{t['btn2']}</a>
       </div>
+      <p class="app-note">{icon('translate')}{EXTRA[lang]['app_note']}</p>
     </div>
     <div class="hero-visual">
       <div class="card-stage">
@@ -385,6 +405,7 @@ def build_guide(lang):
     <div class="faq">{faq}</div>
   </div>
 </section>
+{contact_section(lang)}
 {cta_band(t['cta_h2'], t['cta_p'], [btn_ext(t['cta_btn1']), f'<a class="btn btn-ghost-light" href="{rel(lang, lang, "services")}">{t["cta_btn2"]}</a>'])}
 """
     return t, body
@@ -449,6 +470,7 @@ def build_about(lang):
     <table class="info-table"><tbody>{rows}</tbody></table>
   </div>
 </section>
+{contact_section(lang)}
 """
     return t, body
 
