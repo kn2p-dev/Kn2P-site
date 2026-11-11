@@ -224,7 +224,7 @@ SERVICES = {
         "mp_h2": "현금 없는 한국 여행의<br>새로운 기준",
         "mp_p": "자국 통화(외화)로 간편하게 충전하고, 한국 어디서나 실물카드와 모바일로 자유롭게 결제하세요. 전국 수백만 신한카드 가맹점 결제와 이즐 대중교통, 유저 간 송금까지 선불카드 하나로 완결됩니다.",
         "mp_features": [
-            ("bolt", "외화 즉시 충전 & 일본 자택 사전 배송", "보유한 외화(외국 신용카드 등)로 하루 단위로 고정된 환율을 적용해 원화 선불 잔액을 즉시 충전합니다. 일본에서는 출국 전 일본 자택으로 카드를 미리 받아볼 수 있습니다."),
+            ("bolt", "외화 즉시 충전 & 외국 현지 자택으로 사전 배송", "보유한 외화(외국 신용카드 등)로 하루 단위로 고정된 환율을 적용해 원화 선불 잔액을 즉시 충전합니다. 출국 전 외국 현지 자택으로 카드를 미리 받아볼 수 있습니다."),
             ("autorenew", "카드 등록 & 자동 충전", "결제 카드를 앱에 등록해 두면 매번 카드 정보를 입력하지 않고 충전할 수 있고, 자동 충전도 설정할 수 있습니다."),
             ("credit_card", "전국 신한카드 가맹점 결제 & 실시간 푸시", "헥토파이낸셜 발행 무기명 선불카드로 식당, 쇼핑, 카페 등 전국 신한카드 가맹점에서 IC칩 결제를 지원하고 결제 내역을 즉시 앱으로 알립니다."),
             ("lock", "이즐 대중교통 & 원터치 분실 안심 잠금", "지하철과 시내버스를 태깅으로 탑승하며, 분실 시 모바일 앱에서 원터치로 카드를 즉시 잠가 충전 잔액을 안전하게 보호합니다."),
@@ -259,7 +259,7 @@ SERVICES = {
         "mp_h2": "A new standard for<br>cashless travel in Korea",
         "mp_p": "Top up in your own currency and pay freely anywhere in Korea with the physical card or your phone. Payments at millions of Shinhan Card merchants, EZL public transit and transfers between users, all on one prepaid card.",
         "mp_features": [
-            ("bolt", "Instant FX top-up & delivery to your home in Japan", "Top up a prepaid KRW balance instantly with your foreign currency (e.g. an overseas credit card) at an exchange rate fixed for the day. In Japan, the card can be delivered to your home before you leave."),
+            ("bolt", "Instant FX top-up & pre-delivery to your home abroad", "Top up a prepaid KRW balance instantly with your foreign currency (e.g. an overseas credit card) at an exchange rate fixed for the day. The card can be delivered to your home in your country before you leave."),
             ("autorenew", "Saved cards & auto top-up", "Register your payment card in the app to top up without re-entering card details each time, and set up automatic top-ups."),
             ("credit_card", "Shinhan Card merchants & instant push alerts", "The anonymous prepaid card issued by Hecto Financial supports IC chip payments at restaurants, shops and cafés across the Shinhan Card network, and notifies you in the app the moment you pay."),
             ("lock", "EZL transit & one-tap card lock", "Tap on for the subway and city buses. If you lose the card, lock it instantly with one tap in the app to keep your balance safe."),
@@ -294,7 +294,7 @@ SERVICES = {
         "mp_h2": "現金のいらない韓国旅行の<br>新しいスタンダード",
         "mp_p": "自国通貨（外貨）でかんたんにチャージし、韓国のどこでも実物カードとスマートフォンで自由に支払えます。全国数百万の新韓カード加盟店での決済、EZL公共交通、ユーザー間送金まで、プリペイドカード一枚で完結します。",
         "mp_features": [
-            ("bolt", "すぐに外貨チャージ & 日本のご自宅へ事前配送", "お手持ちの外貨（海外発行クレジットカードなど）で、1日単位で固定された為替レートを適用し、ウォンのプリペイド残高をすぐにチャージ。日本国内ではご出発前にご自宅でカードを受け取れます。"),
+            ("bolt", "すぐに外貨チャージ & 海外現地のご自宅へ事前配送", "お手持ちの外貨（海外発行クレジットカードなど）で、1日単位で固定された為替レートを適用し、ウォンのプリペイド残高をすぐにチャージ。ご出発前に海外現地のご自宅でカードを受け取れます。"),
             ("autorenew", "カード登録 & オートチャージ", "決済カードをアプリに登録しておけば、毎回カード情報を入力せずにチャージでき、オートチャージも設定できます。"),
             ("credit_card", "全国の新韓カード加盟店で決済 & 即時プッシュ通知", "ヘクトファイナンシャル発行の無記名プリペイドカードで、飲食店・ショッピング・カフェなど全国の新韓カード加盟店でICチップ決済が可能。決済内容はすぐにアプリへ通知されます。"),
             ("lock", "EZL公共交通 & ワンタッチ紛失ロック", "地下鉄や市内バスにタッチで乗車。紛失時はアプリからワンタッチでカードをすぐにロックし、チャージ残高を守ります。"),
@@ -334,7 +334,7 @@ GUIDE = {
         "steps_p": "출국 전 자택에서 카드를 수령하고 잔액을 충전하면, 한국 도착 즉시 모든 결제와 대중교통을 이용할 수 있습니다.",
         "steps": [
             ("출국 전", "앱 다운로드 & 회원가입", "MoriPay 앱을 설치하고 앱 안내에 따라 회원가입과 본인 인증을 진행합니다. 앱은 현재 일본어로 제공되며, 영어는 지원 예정입니다.", "verified_user", "앱에서 회원가입·본인 인증"),
-            ("출국 전 · 사전 배송", "실물 카드 신청 및 수령", "온라인 판매처에서 실물 선불카드를 주문하면, 일본에서는 출국 전 일본 자택으로 미리 받아볼 수 있습니다. 한국 공항에 도착해 수령 대기줄에 서지 않아도 됩니다.", "local_shipping", "일본 자택 사전 배송 지원"),
+            ("출국 전 · 사전 배송", "실물 카드 신청 및 수령", "온라인 판매처에서 실물 선불카드를 주문하면, 출국 전 외국 현지 자택으로 미리 받아볼 수 있습니다. 한국 공항에 도착해 수령 대기줄에 서지 않아도 됩니다.", "local_shipping", "외국 현지 자택으로 사전 배송"),
             ("출국 전 · 스마트폰", "외화 충전 & 부가서비스", "외국 신용카드로 외화를 충전하고(카드 등록·자동 충전 지원), 5G 무제한 eSIM, 여행자보험 가입, 공항 픽업 택시까지 앱에서 원스톱으로 예약합니다.", "bolt", "하루 단위 고정 환율 적용"),
             ("한국 체류 중", "도착 즉시 결제 & 이동", "공항 입국장에서 전용 피켓 미팅 후 숙소로 이동하고, 전국 신한카드 가맹점 어디서나 IC 카드로 결제하며 지하철·버스를 탑승합니다.", "contactless", "전국 신한카드 결제망 + 이즐 교통"),
         ],
@@ -379,7 +379,7 @@ GUIDE = {
         "steps_p": "Receive your card at home and top up before you leave, and you're ready to pay and ride public transit the moment you land.",
         "steps": [
             ("Before you go", "Download the app & sign up", "Install the MoriPay app and follow the in-app steps to sign up and verify your identity. The app is currently available in Japanese; English support is coming soon.", "verified_user", "Sign-up & verification in the app"),
-            ("Before you go · delivery", "Order & receive your card", "Order the physical prepaid card from an online store. In Japan, it can be delivered to your home before you leave, so there's no pickup queue at the airport in Korea.", "local_shipping", "Home delivery in Japan"),
+            ("Before you go · delivery", "Order & receive your card", "Order the physical prepaid card from an online store. It can be delivered to your home in your country before you leave, so there's no pickup queue at the airport in Korea.", "local_shipping", "Pre-delivery to your home abroad"),
             ("Before you go · on your phone", "Top up & add services", "Top up in foreign currency with your overseas credit card (saved cards and auto top-up supported), and book an unlimited 5G eSIM, travel insurance and an airport pickup in the same app.", "bolt", "Exchange rate fixed for the day"),
             ("During your stay", "Pay & get around from day one", "Meet your driver at arrivals and head to your hotel, then pay by IC card at Shinhan Card merchants anywhere in Korea and hop on the subway or bus.", "contactless", "Shinhan Card network + EZL transit"),
         ],
@@ -424,7 +424,7 @@ GUIDE = {
         "steps_p": "出発前にご自宅でカードを受け取り、残高をチャージしておけば、韓国到着後すぐに支払いも公共交通も利用できます。",
         "steps": [
             ("出発前", "アプリのダウンロード & 会員登録", "MoriPayアプリをインストールし、アプリの案内に従って会員登録と本人確認を行います。アプリは現在日本語で提供しており、英語にも対応予定です。", "verified_user", "アプリで会員登録・本人確認"),
-            ("出発前 · 事前配送", "実物カードの申し込み・受け取り", "オンラインストアで実物のプリペイドカードを注文すると、日本国内ではご出発前にご自宅で受け取れます。韓国の空港で受け取りの列に並ぶ必要はありません。", "local_shipping", "日本のご自宅へ事前配送"),
+            ("出発前 · 事前配送", "実物カードの申し込み・受け取り", "オンラインストアで実物のプリペイドカードを注文すると、ご出発前に海外現地のご自宅で受け取れます。韓国の空港で受け取りの列に並ぶ必要はありません。", "local_shipping", "海外現地のご自宅へ事前配送"),
             ("出発前 · スマートフォン", "外貨チャージ & 付加サービス", "海外発行のクレジットカードで外貨をチャージし（カード登録・オートチャージ対応）、5G使い放題eSIM、旅行保険、空港送迎タクシーまでアプリでまとめて予約できます。", "bolt", "1日単位の固定レートを適用"),
             ("韓国滞在中", "到着後すぐに支払い & 移動", "空港の到着ロビーでネームボードのお出迎えを受けてホテルへ。全国の新韓カード加盟店でICカード決済をし、地下鉄・バスにも乗車できます。", "contactless", "新韓カード決済ネットワーク + EZL交通"),
         ],
