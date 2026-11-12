@@ -11,6 +11,7 @@ committed so GitHub Pages can serve them without a build step.
 import html
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -515,6 +516,10 @@ def build_about(lang):
     return t, body
 
 
+# microCMS bodies repeat the document title as their first <h1>; the page header already shows it
+LEADING_H1 = re.compile(r"^\s*<h1\b[^>]*>.*?</h1>", re.S | re.I)
+
+
 def build_legal(lang, slug):
     d = LEGAL[(slug, lang)]
     ui = LEGAL_UI[lang]
@@ -534,19 +539,19 @@ def build_legal(lang, slug):
 <section class="page-hero page-hero-legal">
   <div class="container">
     <span class="eyebrow">{esc(ui['eyebrow'])}</span>
-    <h1>{esc(d['title'])}</h1>
+    <h1>{esc(d['title'].strip())}</h1>
     <p class="legal-meta">{' · '.join(meta)}</p>
   </div>
 </section>
 <section class="section section-legal">
   <div class="container">
-    <article class="legal-body">{clean_html(d['body'])}</article>
+    <article class="legal-body">{clean_html(LEADING_H1.sub("", d['body'], count=1))}</article>
     {others_html}
   </div>
 </section>
 """
-    title = f"{d['title']} | MoriPay · K&2P"
-    return title, ui["desc"].format(title=d["title"]), body
+    title = f"{d['title'].strip()} | K&2P"
+    return title, ui["desc"].format(title=d["title"].strip()), body
 
 
 def legal_langs(slug):
