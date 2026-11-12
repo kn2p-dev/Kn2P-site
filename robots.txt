@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kn2p.co.kr/sitemap.xml

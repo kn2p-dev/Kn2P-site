@@ -1,0 +1,22 @@
+# K&2P (케이앤투피)
+
+> K&2P Co., Ltd. is a Seoul-based travel tech company. It operates MoriPay, an all-in-one prepaid travel card
+> for international visitors to Korea: mobile top-up in foreign currency, payments at Shinhan Card merchants
+> nationwide, and EZL public transit, plus Korea eSIM, travel insurance and airport pickup in the app.
+
+## Pages
+- [케이앤투피 | K&2P | 방한 외국인 전용 트래블테크](https://kn2p.co.kr/) (Korean)
+- [MoriPay 서비스 소개: 외화 충전·카드 결제·eSIM·공항 픽업 | 케이앤투피 K&2P](https://kn2p.co.kr/services.html) (Korean)
+- [MoriPay 이용가이드: 출국 전 준비부터 현지 결제까지 | 케이앤투피 K&2P](https://kn2p.co.kr/guide.html) (Korean)
+- [회사소개: 방한 외국인 트래블테크 기업 케이앤투피 | K&2P](https://kn2p.co.kr/about.html) (Korean)
+- [K&2P | Travel Tech for International Visitors to Korea](https://kn2p.co.kr/en/) (English)
+- [MoriPay Services: FX Top-up, Payments, eSIM | K&2P](https://kn2p.co.kr/en/services.html) (English)
+- [MoriPay User Guide: Sign-up, Top-up, Payments & FAQ | K&2P](https://kn2p.co.kr/en/guide.html) (English)
+- [About K&2P: Travel Tech Company Behind MoriPay | K&2P](https://kn2p.co.kr/en/about.html) (English)
+- [K&2P（ケーアンドツーピー）| 訪韓旅行者のためのトラベルテック](https://kn2p.co.kr/ja/) (Japanese)
+- [MoriPayのサービス：外貨チャージ・カード決済・eSIM・空港送迎 | K&2P](https://kn2p.co.kr/ja/services.html) (Japanese)
+- [MoriPayご利用ガイド：登録・チャージ・決済・よくある質問 | K&2P](https://kn2p.co.kr/ja/guide.html) (Japanese)
+- [会社概要：MoriPayを運営するトラベルテック企業 | K&2P（ケーアンドツーピー）](https://kn2p.co.kr/ja/about.html) (Japanese)
+
+## Related
+- [MoriPay official site](https://moripay.com)
