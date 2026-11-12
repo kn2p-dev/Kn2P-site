@@ -208,7 +208,8 @@ def legal_links(lang, page="index"):
     links = []
     for slug, doc in LEGAL_DOCS.items():
         if (slug, lang) in LEGAL:
-            links.append(f'<a href="{rel(lang, lang, "legal/" + slug, page)}">{esc(doc["label"][lang])}</a>')
+            strong = ' class="emph"' if slug == "privacy" else ""  # privacy policy must stand out from other links
+            links.append(f'<a{strong} href="{rel(lang, lang, "legal/" + slug, page)}">{esc(doc["label"][lang])}</a>')
         elif doc["fallback"]:
             links.append(f'<a href="{MP_BASE[lang]}/legal/{doc["fallback"]}" target="_blank" rel="noopener">{esc(doc.get("fallback_label", doc["label"])[lang])}</a>')
     links += [f'<a href="{MP_BASE[lang]}/legal/{slug}" target="_blank" rel="noopener">{esc(label)}</a>' for slug, label in EXTRA[lang]["legal"]]

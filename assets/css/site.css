@@ -364,7 +364,8 @@ a.link { color: var(--color-accent); text-decoration: underline; text-underline-
 .app-note { display: flex; align-items: center; gap: 8px; margin-top: var(--spacing-5); font-size: 0.875rem; color: var(--color-text-secondary); }
 .app-note .icon { font-size: 18px; color: var(--color-accent); }
 .contact .card p.mail { margin-top: var(--spacing-3); font-weight: var(--font-weight-semibold); color: var(--color-text-primary); }
-.site-footer .legal { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 24px; font-size: 0.8125rem; font-weight: var(--font-weight-semibold); color: #dbe4eb; }
+.site-footer .legal { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 24px; font-size: 0.8125rem; font-weight: var(--font-weight-medium); color: #dbe4eb; }
+.site-footer .legal a.emph { color: var(--brand-mint); font-weight: var(--font-weight-bold); }
 .site-footer .legal a:hover { color: #fff; text-decoration: underline; }
 .site-footer .biz a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 :lang(ja) :is(h1, h2, h3) { word-break: auto-phrase; }

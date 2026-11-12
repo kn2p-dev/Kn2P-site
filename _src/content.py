@@ -597,7 +597,7 @@ SUPPORT_EMAIL = "info@kn2p.co.kr"
 EXTRA = {
     "ko": {
         "app_note": "MoriPay 앱은 현재 일본어로 제공되며, 영어는 지원 예정입니다.",
-        "legal": [("electronic-payment", "전자금융거래 이용약관")],
+        "legal": [],
         "contact_eyebrow": "Contact",
         "contact_h2": "고객 문의",
         "contact_p": "MoriPay 이용 중 궁금한 점은 LINE 또는 이메일로 문의해 주세요.",
@@ -611,7 +611,7 @@ EXTRA = {
     },
     "en": {
         "app_note": "The MoriPay app is currently available in Japanese. English support is coming soon.",
-        "legal": [("electronic-payment", "Electronic Payment Terms")],
+        "legal": [],
         "contact_eyebrow": "Contact",
         "contact_h2": "Customer support",
         "contact_p": "Questions about using MoriPay? Reach us on LINE or by email.",
@@ -625,7 +625,7 @@ EXTRA = {
     },
     "ja": {
         "app_note": "MoriPayアプリは現在日本語で提供しています（英語対応予定）。",
-        "legal": [("electronic-payment", "電子金融取引利用規約"), ("tokushoho", "特定商取引法に基づく表記")],
+        "legal": [("tokushoho", "特定商取引法に基づく表記")],
         "contact_eyebrow": "Contact",
         "contact_h2": "お問い合わせ",
         "contact_p": "MoriPayのご利用に関するご質問は、LINEまたはメールでお問い合わせください。",
