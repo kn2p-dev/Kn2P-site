@@ -84,4 +84,67 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/about.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/about.html"/>
   </url>
+  <url>
+    <loc>https://kn2p.co.kr/legal/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/terms.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/en/legal/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/terms.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/ja/legal/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/terms.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/legal/foreigner-terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/foreigner-terms.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/en/legal/foreigner-terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/foreigner-terms.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/ja/legal/foreigner-terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/foreigner-terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/foreigner-terms.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/legal/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/en/legal/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://kn2p.co.kr/ja/legal/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kn2p.co.kr/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kn2p.co.kr/en/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kn2p.co.kr/ja/legal/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kn2p.co.kr/legal/privacy.html"/>
+  </url>
 </urlset>
