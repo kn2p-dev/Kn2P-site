@@ -195,7 +195,6 @@ def header(lang, page, langs=LANGS):
     <nav class="nav" id="site-nav" aria-label="Main">{nav}<a class="nav-ext" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} ↗</a></nav>
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Language">{switch}</div>
-      <a class="btn btn-primary btn-sm btn-cta" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} {icon('arrow_outward')}</a>
       <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="{esc(c['menu'])}">{icon('menu')}</button>
     </div>
   </div>
