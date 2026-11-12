@@ -14,7 +14,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from content import ABOUT, COMMON, EXTRA, GUIDE, HOME, LANGS, LINE_URL, MP_BASE, SERVICES, SUPPORT_EMAIL  # noqa: E402
+from content import ABOUT, COMMON, EXTRA, GUIDE, HOME, LANGS, LEGAL_DOCS, LEGAL_UI, LINE_URL, MP_BASE, SERVICES, SUPPORT_EMAIL  # noqa: E402
+from sanitize import clean_html  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://kn2p.co.kr"
@@ -34,11 +35,30 @@ def page_url(lang, page):
     return f"{SITE}/{path}"
 
 
-def rel(lang, target_lang, page):
-    """Relative link from a page in `lang` to `page` in `target_lang`."""
-    up = "../" if LANG_DIR[lang] else ""
-    file = "index.html" if page == "index" else page + ".html"
-    return up + LANG_DIR[target_lang] + file
+def up_of(lang, page="index"):
+    """Relative prefix from a page back to the site root (pages may live in legal/)."""
+    return "../" * ((1 if LANG_DIR[lang] else 0) + page.count("/"))
+
+
+def rel(lang, target_lang, target, cur="index"):
+    """Relative link from page `cur` in `lang` to page `target` in `target_lang`."""
+    file = "index.html" if target == "index" else target + ".html"
+    return up_of(lang, cur) + LANG_DIR[target_lang] + file
+
+
+def load_legal():
+    """{(slug, lang): document} for every legal document downloaded by fetch_legal.py."""
+    docs = {}
+    for slug in LEGAL_DOCS:
+        for lang in LANGS:
+            path = os.path.join(ROOT, "_src", "legal", f"{slug}.{lang}.json")
+            if os.path.exists(path):
+                with open(path, encoding="utf-8") as f:
+                    docs[(slug, lang)] = json.load(f)
+    return docs
+
+
+LEGAL = load_legal()
 
 
 ICONS = set()  # Material Symbols used on the site; the font request is subset to these
@@ -95,11 +115,11 @@ def jsonld(lang, page, title, desc):
     return f'<script type="application/ld+json">{data}</script>'
 
 
-def head(lang, page, title, desc):
+def head(lang, page, title, desc, langs=LANGS):
     c = COMMON[lang]
-    up = "../" if LANG_DIR[lang] else ""
+    up = up_of(lang, page)
     alternates = "\n".join(
-        f'<link rel="alternate" hreflang="{l}" href="{page_url(l, page)}">' for l in LANGS
+        f'<link rel="alternate" hreflang="{l}" href="{page_url(l, page)}">' for l in langs
     )
     fonts = {
         "ko": "family=Noto+Sans+KR:wght@400;500;600;700;800",
@@ -123,7 +143,7 @@ def head(lang, page, title, desc):
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{page_url(lang, page)}">
 {alternates}
-<link rel="alternate" hreflang="x-default" href="{page_url('ko', page)}">
+<link rel="alternate" hreflang="x-default" href="{page_url('ko' if 'ko' in langs else langs[0], page)}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="K&amp;2P">
 <meta property="og:title" content="{esc(title)}">
@@ -153,24 +173,24 @@ def head(lang, page, title, desc):
 """
 
 
-def header(lang, page):
+def header(lang, page, langs=LANGS):
     c = COMMON[lang]
-    up = "../" if LANG_DIR[lang] else ""
+    up = up_of(lang, page)
     cur_page = ' aria-current="page"'
     cur_lang = ' aria-current="true"'
     nav = "".join(
-        f'<a href="{rel(lang, lang, p)}"{cur_page if p == page else ""}>{esc(c["nav"][p])}</a>'
+        f'<a href="{rel(lang, lang, p, page)}"{cur_page if p == page else ""}>{esc(c["nav"][p])}</a>'
         for p in PAGES
     )
     switch = "".join(
-        f'<a href="{rel(lang, l, page)}" hreflang="{l}" lang="{l}" title="{esc(COMMON[l]["lang_label"])}"'
+        f'<a href="{rel(lang, l, page if l in langs else "index", page)}" hreflang="{l}" lang="{l}" title="{esc(COMMON[l]["lang_label"])}"'
         f'{cur_lang if l == lang else ""}>{SHORT[l]}</a>'
         for l in LANGS
     )
     return f"""<a class="skip-link" href="#main">{esc(c['skip'])}</a>
 <header class="site-header">
   <div class="container">
-    <a class="brand" href="{rel(lang, lang, 'index')}"><img src="{up}logo_horizontal_transparent.png" alt="K&amp;2P" width="94" height="30"></a>
+    <a class="brand" href="{rel(lang, lang, 'index', page)}"><img src="{up}logo_horizontal_transparent.png" alt="K&amp;2P" width="94" height="30"></a>
     <nav class="nav" id="site-nav" aria-label="Main">{nav}<a class="nav-ext" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} ↗</a></nav>
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Language">{switch}</div>
@@ -183,19 +203,31 @@ def header(lang, page):
 """
 
 
-def footer(lang):
+def legal_links(lang, page="index"):
+    """Footer links: microCMS documents rendered on this site, else their moripay.com fallback."""
+    links = []
+    for slug, doc in LEGAL_DOCS.items():
+        if (slug, lang) in LEGAL:
+            links.append(f'<a href="{rel(lang, lang, "legal/" + slug, page)}">{esc(doc["label"][lang])}</a>')
+        elif doc["fallback"]:
+            links.append(f'<a href="{MP_BASE[lang]}/legal/{doc["fallback"]}" target="_blank" rel="noopener">{esc(doc.get("fallback_label", doc["label"])[lang])}</a>')
+    links += [f'<a href="{MP_BASE[lang]}/legal/{slug}" target="_blank" rel="noopener">{esc(label)}</a>' for slug, label in EXTRA[lang]["legal"]]
+    return "".join(links)
+
+
+def footer(lang, page="index"):
     c = COMMON[lang]
-    up = "../" if LANG_DIR[lang] else ""
-    nav = "".join(f'<a href="{rel(lang, lang, p)}">{esc(c["nav"][p])}</a>' for p in PAGES)
+    up = up_of(lang, page)
+    nav = "".join(f'<a href="{rel(lang, lang, p, page)}">{esc(c["nav"][p])}</a>' for p in PAGES)
     biz = "".join(f"<span>{esc(x)}</span>" for x in c["biz"])
     biz2 = "".join(f"<span>{esc(x)}</span>" for x in c["biz2"])
     x = EXTRA[lang]
-    legal = "".join(f'<a href="{MP_BASE[lang]}/legal/{slug}" target="_blank" rel="noopener">{esc(label)}</a>' for slug, label in x["legal"])
+    legal = legal_links(lang, page)
     return f"""</main>
 <footer class="site-footer">
   <div class="container">
     <div class="top">
-      <a class="logo-wrap" href="{rel(lang, lang, 'index')}"><img src="{up}logo_horizontal_transparent.png" alt="K&amp;2P" width="75" height="24"></a>
+      <a class="logo-wrap" href="{rel(lang, lang, 'index', page)}"><img src="{up}logo_horizontal_transparent.png" alt="K&amp;2P" width="75" height="24"></a>
       <nav aria-label="Footer">{nav}<a href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['footer_moripay'])} ↗</a></nav>
     </div>
     <nav class="legal" aria-label="Legal">{legal}</nav>
@@ -483,6 +515,44 @@ def build_about(lang):
     return t, body
 
 
+def build_legal(lang, slug):
+    d = LEGAL[(slug, lang)]
+    ui = LEGAL_UI[lang]
+    page = "legal/" + slug
+    meta = []
+    if d.get("version"):
+        meta.append(f'{ui["version"]} {esc(d["version"])}')
+    date = (d.get("revisedAt") or d.get("publishedAt") or "")[:10]
+    if date:
+        meta.append(f'{ui["updated"]} <time datetime="{date}">{date}</time>')
+    others = "".join(
+        f'<a href="{rel(lang, lang, "legal/" + s2, page)}">{esc(doc["label"][lang])}</a>'
+        for s2, doc in LEGAL_DOCS.items() if s2 != slug and (s2, lang) in LEGAL
+    )
+    others_html = f'<nav class="legal-others" aria-label="{esc(ui["others"])}"><span>{esc(ui["others"])}</span>{others}</nav>' if others else ""
+    body = f"""
+<section class="page-hero page-hero-legal">
+  <div class="container">
+    <span class="eyebrow">{esc(ui['eyebrow'])}</span>
+    <h1>{esc(d['title'])}</h1>
+    <p class="legal-meta">{' · '.join(meta)}</p>
+  </div>
+</section>
+<section class="section section-legal">
+  <div class="container">
+    <article class="legal-body">{clean_html(d['body'])}</article>
+    {others_html}
+  </div>
+</section>
+"""
+    title = f"{d['title']} | MoriPay · K&2P"
+    return title, ui["desc"].format(title=d["title"]), body
+
+
+def legal_langs(slug):
+    return [l for l in LANGS if (slug, l) in LEGAL]
+
+
 BUILDERS = {"index": build_index, "services": build_services, "guide": build_guide, "about": build_about}
 
 
@@ -496,6 +566,13 @@ def write_extras():
             alts = "".join(
                 f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{page_url(l, page)}"/>' for l in LANGS
             ) + f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{page_url("ko", page)}"/>'
+            urls.append(f"  <url>\n    <loc>{page_url(lang, page)}</loc>{alts}\n  </url>")
+    for slug in LEGAL_DOCS:
+        langs = legal_langs(slug)
+        page = "legal/" + slug
+        for lang in langs:
+            alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{page_url(l, page)}"/>' for l in langs)
+            alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{page_url("ko" if "ko" in langs else langs[0], page)}"/>'
             urls.append(f"  <url>\n    <loc>{page_url(lang, page)}</loc>{alts}\n  </url>")
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -532,7 +609,7 @@ def write_extras():
     doc = head("ko", "index", "404 | K&2P", "페이지를 찾을 수 없습니다.") + header("ko", "index") + body404 + footer("ko")
     doc = doc.replace('<link rel="canonical" href="https://kn2p.co.kr/">', '<meta name="robots" content="noindex">')
     doc = "\n".join(l for l in doc.split("\n") if 'hreflang=' not in l or 'lang-switch' in l)
-    for a in ('href="assets/', 'src="assets/', 'href="logo_', 'src="logo_', 'href="index.html', 'href="services.html', 'href="guide.html', 'href="about.html', 'href="en/', 'href="ja/'):
+    for a in ('href="assets/', 'src="assets/', 'href="logo_', 'src="logo_', 'href="index.html', 'href="services.html', 'href="guide.html', 'href="about.html', 'href="en/', 'href="ja/', 'href="legal/'):
         doc = doc.replace(a, a.replace('="', '="/'))
     return doc
 
@@ -550,11 +627,18 @@ def main():
         for page in PAGES:
             t, body = BUILDERS[page](lang)
             docs[os.path.join(outdir, page + ".html")] = head(lang, page, t["title"], t["desc"]) + header(lang, page) + body + footer(lang)
+    for (slug, lang) in sorted(LEGAL):
+        page = "legal/" + slug
+        langs = legal_langs(slug)
+        title, desc, body = build_legal(lang, slug)
+        outdir = os.path.join(ROOT, LANG_DIR[lang], "legal")
+        os.makedirs(outdir, exist_ok=True)
+        docs[os.path.join(outdir, slug + ".html")] = head(lang, page, title, desc, langs) + header(lang, page, langs) + body + footer(lang, page)
     docs[os.path.join(ROOT, "404.html")] = write_extras()
     # icons are collected while rendering, so files are written only after every page is built
     for path, doc in docs.items():
         write(path, doc)
-    print(f"built {len(docs) - 1} pages + 404.html, robots.txt, sitemap.xml, llms.txt")
+    print(f"built {len(docs) - 1 - len(LEGAL)} pages + {len(LEGAL)} legal pages + 404.html, robots.txt, sitemap.xml, llms.txt")
 
 
 if __name__ == "__main__":

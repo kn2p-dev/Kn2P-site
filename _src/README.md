@@ -25,3 +25,12 @@ Google Material Symbols를 쓴다. 빌드할 때 페이지에 쓰인 아이콘 �
   - 재생성: `_src/build_astryx_tokens.sh` (Node 필요)
 - Astryx 컴포넌트는 React 19 기반이라 쓰지 않았다. 회사 소개 사이트는 정적 HTML이 SEO·속도·운영 면에서 낫기 때문이다.
 - `assets/css/site.css`: 페이지 레이아웃. 브랜드 색은 로고(빨강 `#DB3528`, 회색 `#737D81`)와 MoriPay 카드 그라데이션(`#029ED9 → #98D4C8`)에서 가져왔다.
+
+## 약관 (microCMS 연동)
+서비스 이용약관·외국인 서비스 이용약관·개인정보처리방침(한·영·일)은 microCMS(`moripay-production` 서비스, `terms` API)에서 가져와 `/legal/`, `/en/legal/`, `/ja/legal/` 페이지로 만든다. 콘텐츠 ID는 `_src/content.py`의 `LEGAL_DOCS`에 있다.
+
+1. 처음 한 번: GitHub 저장소 Settings → Secrets and variables → Actions → New repository secret, 이름 `MICROCMS_API_KEY`, 값은 microCMS의 GET 전용 API 키.
+2. microCMS에서 약관을 고친 뒤: 저장소 Actions 탭 → "Update legal pages" → Run workflow. 약관을 받아 `_src/legal/*.json`에 저장하고 사이트를 다시 빌드해 `main`에 커밋한다(=운영 반영). 바뀐 내용이 없으면 커밋하지 않는다.
+3. 로컬에서 받으려면 `MICROCMS_API_KEY=키 python3 _src/fetch_legal.py && python3 _src/build.py`. 키는 저장소나 파일에 적지 않는다.
+
+받은 적 없는 문서는 페이지를 만들지 않고, 푸터에서 moripay.com의 해당 약관으로 연결한다. 본문 HTML은 `_src/sanitize.py`가 허용 목록 방식으로 정리한다(스크립트·iframe·인라인 스타일 제거).

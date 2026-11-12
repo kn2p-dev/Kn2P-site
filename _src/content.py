@@ -82,7 +82,7 @@ HOME = {
         "btn2": "회사 소개",
         "chips": [
             ("currency_exchange", "외화 모바일 충전", "하루 단위 고정 환율"),
-            ("credit_card", "신한카드 가맹점 결제", "전국 온·오프라인"),
+            ("credit_card", "신한카드 가맹점 결제", "전국 오프라인 가맹점"),
             ("directions_subway", "이즐 대중교통", "지하철·버스 태깅"),
         ],
         "values_eyebrow": "Vision & Value",
@@ -90,7 +90,7 @@ HOME = {
         "values_p": "환전, 결제, 이동. 여행자가 한국에서 가장 먼저 마주하는 불편을 카드 한 장과 앱 하나로 해결합니다.",
         "values": [
             ("currency_exchange", "모바일 외화 즉시 충전", "현금 환전소 방문 없이, 외국 현지 카드와 간편결제로 외화를 앱에서 원화 잔액으로 즉시 충전합니다."),
-            ("credit_card", "전국 신한카드 결제망 연계", "헥토파이낸셜 발행 선불카드로 전국 수백만 온·오프라인 신한카드 가맹점에서 편리하게 결제할 수 있습니다."),
+            ("credit_card", "전국 신한카드 결제망 연계", "헥토파이낸셜 발행 선불카드로 전국 신한카드 오프라인 가맹점에서 편리하게 결제할 수 있습니다."),
             ("directions_subway", "이즐(EZL) 전국 대중교통 통합", "실물카드에 탑재된 이즐 교통카드로 지하철, 버스 등 한국의 대중교통을 별도 교통카드 없이 바로 이용합니다."),
         ],
         "flag_eyebrow": "주력 서비스",
@@ -128,7 +128,7 @@ HOME = {
         "btn2": "About K&2P",
         "chips": [
             ("currency_exchange", "Mobile FX top-up", "Daily fixed exchange rate"),
-            ("credit_card", "Pay at Shinhan Card merchants", "Online & offline nationwide"),
+            ("credit_card", "Pay at Shinhan Card merchants", "In-store, nationwide"),
             ("directions_subway", "EZL public transit", "Tap for subway & bus"),
         ],
         "values_eyebrow": "Vision & Value",
@@ -136,7 +136,7 @@ HOME = {
         "values_p": "Currency exchange, payments and getting around: we solve the first hurdles travelers meet in Korea with one card and one app.",
         "values": [
             ("currency_exchange", "Instant mobile FX top-up", "Skip the exchange counter. Top up your KRW balance in the app instantly using your home-country card or digital wallet."),
-            ("credit_card", "Connected to Shinhan Card's network", "The prepaid card, issued by Hecto Financial, works at millions of Shinhan Card merchants online and offline across Korea."),
+            ("credit_card", "Connected to Shinhan Card's network", "The prepaid card, issued by Hecto Financial, works at Shinhan Card's in-store merchants across Korea."),
             ("directions_subway", "EZL transit, built in", "The physical card carries an EZL transit chip, so you can ride subways and buses across Korea without buying a separate transit card."),
         ],
         "flag_eyebrow": "Flagship service",
@@ -174,7 +174,7 @@ HOME = {
         "btn2": "会社概要",
         "chips": [
             ("currency_exchange", "外貨モバイルチャージ", "1日単位の固定レート"),
-            ("credit_card", "新韓カード加盟店で決済", "全国のオンライン・店舗"),
+            ("credit_card", "新韓カード加盟店で決済", "全国の店舗で利用可能"),
             ("directions_subway", "EZL公共交通", "地下鉄・バスにタッチ"),
         ],
         "values_eyebrow": "Vision & Value",
@@ -182,7 +182,7 @@ HOME = {
         "values_p": "両替、支払い、移動。旅行者が韓国で最初に直面する不便を、カード一枚とアプリひとつで解決します。",
         "values": [
             ("currency_exchange", "モバイルですぐに外貨チャージ", "両替所に行かなくても、お手持ちのカードやキャッシュレス決済で外貨をアプリ内のウォン残高へすぐにチャージできます。"),
-            ("credit_card", "新韓カードの決済ネットワークに対応", "ヘクトファイナンシャル発行のプリペイドカードで、韓国全国数百万の新韓カード加盟店（オンライン・店舗）で支払えます。"),
+            ("credit_card", "新韓カードの決済ネットワークに対応", "ヘクトファイナンシャル発行のプリペイドカードで、韓国全国の新韓カード加盟店（店舗）で支払えます。"),
             ("directions_subway", "EZL全国公共交通に対応", "実物カードにEZL交通カード機能を搭載。別途交通カードを用意しなくても、地下鉄やバスにそのまま乗車できます。"),
         ],
         "flag_eyebrow": "主力サービス",
@@ -222,7 +222,7 @@ SERVICES = {
         "lead": "방한 외국인 여행객을 위한 최적화된 기술로 한국에서의 모든 순간을 편리하게 연결합니다.",
         "mp_eyebrow": "MoriPay",
         "mp_h2": "현금 없는 한국 여행의<br>새로운 기준",
-        "mp_p": "자국 통화(외화)로 간편하게 충전하고, 한국 어디서나 실물카드와 모바일로 자유롭게 결제하세요. 전국 수백만 신한카드 가맹점 결제와 이즐 대중교통, 유저 간 송금까지 선불카드 하나로 완결됩니다.",
+        "mp_p": "자국 통화(외화)로 간편하게 충전하고, 한국 어디서나 실물카드로 자유롭게 결제하세요. 전국 신한카드 오프라인 가맹점 결제와 이즐 대중교통, 유저 간 송금까지 선불카드 하나로 완결됩니다.",
         "mp_features": [
             ("bolt", "외화 즉시 충전 & 외국 현지 자택으로 사전 배송", "보유한 외화(외국 신용카드 등)로 하루 단위로 고정된 환율을 적용해 원화 선불 잔액을 즉시 충전합니다. 출국 전 외국 현지 자택으로 카드를 미리 받아볼 수 있습니다."),
             ("autorenew", "카드 등록 & 자동 충전", "결제 카드를 앱에 등록해 두면 매번 카드 정보를 입력하지 않고 충전할 수 있고, 자동 충전도 설정할 수 있습니다."),
@@ -257,7 +257,7 @@ SERVICES = {
         "lead": "Technology built for international travelers, connecting every moment of your stay in Korea.",
         "mp_eyebrow": "MoriPay",
         "mp_h2": "A new standard for<br>cashless travel in Korea",
-        "mp_p": "Top up in your own currency and pay freely anywhere in Korea with the physical card or your phone. Payments at millions of Shinhan Card merchants, EZL public transit and transfers between users, all on one prepaid card.",
+        "mp_p": "Top up in your own currency and pay freely anywhere in Korea with the physical card. In-store payments at Shinhan Card merchants, EZL public transit and transfers between users, all on one prepaid card.",
         "mp_features": [
             ("bolt", "Instant FX top-up & pre-delivery to your home abroad", "Top up a prepaid KRW balance instantly with your foreign currency (e.g. an overseas credit card) at an exchange rate fixed for the day. The card can be delivered to your home in your country before you leave."),
             ("autorenew", "Saved cards & auto top-up", "Register your payment card in the app to top up without re-entering card details each time, and set up automatic top-ups."),
@@ -292,7 +292,7 @@ SERVICES = {
         "lead": "訪韓旅行者に最適化したテクノロジーで、韓国でのあらゆる瞬間を快適につなぎます。",
         "mp_eyebrow": "MoriPay",
         "mp_h2": "現金のいらない韓国旅行の<br>新しいスタンダード",
-        "mp_p": "自国通貨（外貨）でかんたんにチャージし、韓国のどこでも実物カードとスマートフォンで自由に支払えます。全国数百万の新韓カード加盟店での決済、EZL公共交通、ユーザー間送金まで、プリペイドカード一枚で完結します。",
+        "mp_p": "自国通貨（外貨）でかんたんにチャージし、韓国のどこでも実物カードで自由に支払えます。全国の新韓カード加盟店（店舗）での決済、EZL公共交通、ユーザー間送金まで、プリペイドカード一枚で完結します。",
         "mp_features": [
             ("bolt", "すぐに外貨チャージ & 海外現地のご自宅へ事前配送", "お手持ちの外貨（海外発行クレジットカードなど）で、1日単位で固定された為替レートを適用し、ウォンのプリペイド残高をすぐにチャージ。ご出発前に海外現地のご自宅でカードを受け取れます。"),
             ("autorenew", "カード登録 & オートチャージ", "決済カードをアプリに登録しておけば、毎回カード情報を入力せずにチャージでき、オートチャージも設定できます。"),
@@ -483,7 +483,7 @@ ABOUT = {
         "pr_p": "MoriPay는 단순한 결제 앱을 넘어, 외국인 여행객이 낯선 한국에서 겪는 환전과 결제의 불안을 덜어주고 여행의 모든 순간을 든든하게 받쳐주는 '스마트 트래블 카드 & 플랫폼'입니다.",
         "pr_list": [
             "외화 모바일 간편 충전(카드 등록·자동 충전) 및 무기명 실물 선불카드",
-            "전국 온·오프라인 신한카드 결제 및 이즐(EZL) 대중교통 통합",
+            "전국 신한카드 오프라인 가맹점 결제 및 이즐(EZL) 대중교통 통합",
             "Korea eSIM, 안심 해외 여행자 보험, 회원 간 실시간 잔액 송금 (송금된 잔액은 환불 불가)",
         ],
         "pr_btn": "MoriPay 서비스 보기",
@@ -524,7 +524,7 @@ ABOUT = {
         "pr_p": "MoriPay is more than a payment app. It is a smart travel card and platform that eases the worry of exchanging money and paying in an unfamiliar country, and supports travelers at every moment of their trip.",
         "pr_list": [
             "Easy mobile top-up in foreign currency (saved cards & auto top-up) and an anonymous physical prepaid card",
-            "Shinhan Card payments online and offline nationwide, plus EZL public transit",
+            "In-store payments at Shinhan Card merchants nationwide, plus EZL public transit",
             "Korea eSIM, travel insurance and real-time balance transfers between members (transferred balances are non-refundable)",
         ],
         "pr_btn": "See MoriPay services",
@@ -565,7 +565,7 @@ ABOUT = {
         "pr_p": "MoriPayは単なる決済アプリではありません。初めての韓国で感じる両替や支払いの不安を軽くし、旅のあらゆる瞬間をしっかり支える「スマートトラベルカード & プラットフォーム」です。",
         "pr_list": [
             "外貨のかんたんモバイルチャージ（カード登録・オートチャージ）と無記名の実物プリペイドカード",
-            "全国のオンライン・店舗での新韓カード決済とEZL公共交通に対応",
+            "全国の新韓カード加盟店（店舗）での決済とEZL公共交通に対応",
             "Korea eSIM、海外旅行保険、会員間のリアルタイム残高送金（送金した残高は返金不可）",
         ],
         "pr_btn": "MoriPayのサービスを見る",
@@ -597,7 +597,7 @@ SUPPORT_EMAIL = "info@kn2p.co.kr"
 EXTRA = {
     "ko": {
         "app_note": "MoriPay 앱은 현재 일본어로 제공되며, 영어는 지원 예정입니다.",
-        "legal": [("terms", "이용약관"), ("privacypolicy", "개인정보처리방침"), ("electronic-payment", "전자금융거래 이용약관")],
+        "legal": [("electronic-payment", "전자금융거래 이용약관")],
         "contact_eyebrow": "Contact",
         "contact_h2": "고객 문의",
         "contact_p": "MoriPay 이용 중 궁금한 점은 LINE 또는 이메일로 문의해 주세요.",
@@ -611,7 +611,7 @@ EXTRA = {
     },
     "en": {
         "app_note": "The MoriPay app is currently available in Japanese. English support is coming soon.",
-        "legal": [("terms", "Terms of Service"), ("privacypolicy", "Privacy Policy"), ("electronic-payment", "Electronic Payment Terms")],
+        "legal": [("electronic-payment", "Electronic Payment Terms")],
         "contact_eyebrow": "Contact",
         "contact_h2": "Customer support",
         "contact_p": "Questions about using MoriPay? Reach us on LINE or by email.",
@@ -625,7 +625,7 @@ EXTRA = {
     },
     "ja": {
         "app_note": "MoriPayアプリは現在日本語で提供しています（英語対応予定）。",
-        "legal": [("terms", "利用規約"), ("privacypolicy", "個人情報処理方針"), ("electronic-payment", "電子金融取引利用規約"), ("tokushoho", "特定商取引法に基づく表記")],
+        "legal": [("electronic-payment", "電子金融取引利用規約"), ("tokushoho", "特定商取引法に基づく表記")],
         "contact_eyebrow": "Contact",
         "contact_h2": "お問い合わせ",
         "contact_p": "MoriPayのご利用に関するご質問は、LINEまたはメールでお問い合わせください。",
@@ -637,4 +637,38 @@ EXTRA = {
         "mail_btn": "お問い合わせフォーム",
         "email_label": "メール",
     },
+}
+
+
+# ───────────────────────────────────────────────── legal (microCMS)
+# Bodies are downloaded by _src/fetch_legal.py into _src/legal/<slug>.<lang>.json
+# and rendered as /legal/<slug>.html, /en/legal/..., /ja/legal/...
+# Until a document has been downloaded, the footer links to `fallback` on moripay.com
+# (or omits the link when there is none), labelled `fallback_label` if given.
+MICROCMS_SERVICE = "moripay-production"
+MICROCMS_ENDPOINT = "terms"
+
+LEGAL_DOCS = {
+    "terms": {
+        "ids": {"ko": "moripay_service_terms_ko", "en": "moripay_service_terms_en", "ja": "moripay_service_terms"},
+        "label": {"ko": "서비스 이용약관", "en": "Terms of Service", "ja": "サービス利用規約"},
+        "fallback": "terms",
+        "fallback_label": {"ko": "이용약관", "en": "Terms of Service", "ja": "利用規約"},
+    },
+    "foreigner-terms": {
+        "ids": {"ko": "moripay_foreigner_service_terms_ko", "en": "moripay_foreigner_service_terms_en", "ja": "moripay_foreigner_service_terms"},
+        "label": {"ko": "외국인 서비스 이용약관", "en": "Terms of Service for Foreign Users", "ja": "外国人向けサービス利用規約"},
+        "fallback": None,
+    },
+    "privacy": {
+        "ids": {"ko": "moripay_privacy_policy_ko", "en": "moripay_privacy_policy_en", "ja": "moripay_privacy_policy"},
+        "label": {"ko": "개인정보처리방침", "en": "Privacy Policy", "ja": "個人情報処理方針"},
+        "fallback": "privacypolicy",
+    },
+}
+
+LEGAL_UI = {
+    "ko": {"eyebrow": "약관 및 정책", "version": "버전", "updated": "최종 업데이트", "others": "다른 약관", "desc": "주식회사 케이앤투피가 운영하는 MoriPay의 {title}입니다."},
+    "en": {"eyebrow": "Legal", "version": "Version", "updated": "Last updated", "others": "Other documents", "desc": "{title} of MoriPay, operated by K&2P Co., Ltd."},
+    "ja": {"eyebrow": "規約・ポリシー", "version": "バージョン", "updated": "最終更新", "others": "その他の規約", "desc": "株式会社K&2Pが運営するMoriPayの{title}です。"},
 }
