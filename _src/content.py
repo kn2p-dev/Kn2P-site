@@ -625,7 +625,7 @@ EXTRA = {
     },
     "ja": {
         "app_note": "MoriPayアプリは現在日本語で提供しています（英語対応予定）。",
-        "legal": [("tokushoho", "特定商取引法に基づく表記")],
+        "legal": [],
         "contact_eyebrow": "Contact",
         "contact_h2": "お問い合わせ",
         "contact_p": "MoriPayのご利用に関するご質問は、LINEまたはメールでお問い合わせください。",
