@@ -42,7 +42,11 @@ def main():
             try:
                 data = fetch(content_id, key)
             except urllib.error.HTTPError as e:
-                failed.append(f"{content_id}: HTTP {e.code}")
+                try:
+                    reason = json.loads(e.read().decode("utf-8")).get("message", "")
+                except Exception:
+                    reason = ""
+                failed.append(f"{content_id}: HTTP {e.code} {reason}".rstrip())
                 continue
             except urllib.error.URLError as e:
                 failed.append(f"{content_id}: {e.reason}")
