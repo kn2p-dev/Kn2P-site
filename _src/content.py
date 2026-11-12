@@ -475,8 +475,8 @@ ABOUT = {
         "cc_eyebrow": "Core Competencies",
         "cc_h2": "K&2P의 핵심 역량",
         "cc": [
-            ("account_balance", "Robust Fintech Infrastructure", "헥토파이낸셜(선불전자지급수단), 신한카드(가맹점 결제 네트워크), 이즐(전국 대중교통망), KOMOJU(글로벌 결제) 등 공인된 제도권 금융·결제 파트너십을 기반으로 안전하고 신뢰할 수 있는 핀테크 인프라와 실시간 정산 환경을 제공합니다."),
-            ("travel_explore", "Deep Traveler Insight & UX", "방한 외국인 관광객의 실제 여행 패턴과 금융 소비 동선을 면밀히 분석하여, 언어 장벽 없는 전용 UI와 여행에 꼭 필요한 기능(교통·보험·eSIM·송금)만을 정교하게 담아낸 사용자 경험을 설계합니다."),
+            ("account_balance", "탄탄한 핀테크 인프라", "헥토파이낸셜(선불전자지급수단), 신한카드(가맹점 결제 네트워크), 이즐(전국 대중교통망), KOMOJU(글로벌 결제) 등 공인된 제도권 금융·결제 파트너십을 기반으로 안전하고 신뢰할 수 있는 핀테크 인프라와 실시간 정산 환경을 제공합니다."),
+            ("travel_explore", "여행자 인사이트 기반 UX", "방한 외국인 관광객의 실제 여행 패턴과 금융 소비 동선을 면밀히 분석하여, 언어 장벽 없는 전용 UI와 여행에 꼭 필요한 기능(교통·보험·eSIM·송금)만을 정교하게 담아낸 사용자 경험을 설계합니다."),
         ],
         "pr_eyebrow": "Our Product",
         "pr_h2": "MoriPay:<br>Your Travel Companion",
@@ -557,8 +557,8 @@ ABOUT = {
         "cc_eyebrow": "Core Competencies",
         "cc_h2": "K&2Pの強み",
         "cc": [
-            ("account_balance", "Robust Fintech Infrastructure", "ヘクトファイナンシャル（前払式電子支払手段）、新韓カード（加盟店決済ネットワーク）、EZL（全国公共交通網）、KOMOJU（グローバル決済）など、公認された金融・決済パートナーシップを基盤に、安全で信頼できるフィンテックインフラとリアルタイム精算環境を提供します。"),
-            ("travel_explore", "Deep Traveler Insight & UX", "訪韓旅行者の実際の旅行パターンと消費動線を丁寧に分析し、言葉の壁のない専用UIと、旅に本当に必要な機能（交通・保険・eSIM・送金）だけを厳選したユーザー体験を設計します。"),
+            ("account_balance", "堅牢なフィンテック基盤", "ヘクトファイナンシャル（前払式電子支払手段）、新韓カード（加盟店決済ネットワーク）、EZL（全国公共交通網）、KOMOJU（グローバル決済）など、公認された金融・決済パートナーシップを基盤に、安全で信頼できるフィンテックインフラとリアルタイム精算環境を提供します。"),
+            ("travel_explore", "旅行者インサイトに基づくUX", "訪韓旅行者の実際の旅行パターンと消費動線を丁寧に分析し、言葉の壁のない専用UIと、旅に本当に必要な機能（交通・保険・eSIM・送金）だけを厳選したユーザー体験を設計します。"),
         ],
         "pr_eyebrow": "Our Product",
         "pr_h2": "MoriPay:<br>Your Travel Companion",
@@ -597,7 +597,7 @@ SUPPORT_EMAIL = "info@kn2p.co.kr"
 EXTRA = {
     "ko": {
         "app_note": "MoriPay 앱은 현재 일본어로 제공되며, 영어는 지원 예정입니다.",
-        "legal": [("electronic-payment", "전자금융거래 이용약관")],
+        "legal": [],
         "contact_eyebrow": "Contact",
         "contact_h2": "고객 문의",
         "contact_p": "MoriPay 이용 중 궁금한 점은 LINE 또는 이메일로 문의해 주세요.",
@@ -611,7 +611,7 @@ EXTRA = {
     },
     "en": {
         "app_note": "The MoriPay app is currently available in Japanese. English support is coming soon.",
-        "legal": [("electronic-payment", "Electronic Payment Terms")],
+        "legal": [],
         "contact_eyebrow": "Contact",
         "contact_h2": "Customer support",
         "contact_p": "Questions about using MoriPay? Reach us on LINE or by email.",
@@ -625,7 +625,7 @@ EXTRA = {
     },
     "ja": {
         "app_note": "MoriPayアプリは現在日本語で提供しています（英語対応予定）。",
-        "legal": [("electronic-payment", "電子金融取引利用規約"), ("tokushoho", "特定商取引法に基づく表記")],
+        "legal": [],
         "contact_eyebrow": "Contact",
         "contact_h2": "お問い合わせ",
         "contact_p": "MoriPayのご利用に関するご質問は、LINEまたはメールでお問い合わせください。",

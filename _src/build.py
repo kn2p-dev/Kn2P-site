@@ -11,6 +11,7 @@ committed so GitHub Pages can serve them without a build step.
 import html
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -194,7 +195,6 @@ def header(lang, page, langs=LANGS):
     <nav class="nav" id="site-nav" aria-label="Main">{nav}<a class="nav-ext" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} ↗</a></nav>
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Language">{switch}</div>
-      <a class="btn btn-primary btn-sm btn-cta" href="{MP_BASE[lang]}" target="_blank" rel="noopener">{esc(c['cta_moripay'])} {icon('arrow_outward')}</a>
       <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="{esc(c['menu'])}">{icon('menu')}</button>
     </div>
   </div>
@@ -208,7 +208,8 @@ def legal_links(lang, page="index"):
     links = []
     for slug, doc in LEGAL_DOCS.items():
         if (slug, lang) in LEGAL:
-            links.append(f'<a href="{rel(lang, lang, "legal/" + slug, page)}">{esc(doc["label"][lang])}</a>')
+            strong = ' class="emph"' if slug == "privacy" else ""  # privacy policy must stand out from other links
+            links.append(f'<a{strong} href="{rel(lang, lang, "legal/" + slug, page)}">{esc(doc["label"][lang])}</a>')
         elif doc["fallback"]:
             links.append(f'<a href="{MP_BASE[lang]}/legal/{doc["fallback"]}" target="_blank" rel="noopener">{esc(doc.get("fallback_label", doc["label"])[lang])}</a>')
     links += [f'<a href="{MP_BASE[lang]}/legal/{slug}" target="_blank" rel="noopener">{esc(label)}</a>' for slug, label in EXTRA[lang]["legal"]]
@@ -515,6 +516,10 @@ def build_about(lang):
     return t, body
 
 
+# microCMS bodies repeat the document title as their first <h1>; the page header already shows it
+LEADING_H1 = re.compile(r"^\s*<h1\b[^>]*>.*?</h1>", re.S | re.I)
+
+
 def build_legal(lang, slug):
     d = LEGAL[(slug, lang)]
     ui = LEGAL_UI[lang]
@@ -534,19 +539,19 @@ def build_legal(lang, slug):
 <section class="page-hero page-hero-legal">
   <div class="container">
     <span class="eyebrow">{esc(ui['eyebrow'])}</span>
-    <h1>{esc(d['title'])}</h1>
+    <h1>{esc(d['title'].strip())}</h1>
     <p class="legal-meta">{' · '.join(meta)}</p>
   </div>
 </section>
 <section class="section section-legal">
   <div class="container">
-    <article class="legal-body">{clean_html(d['body'])}</article>
+    <article class="legal-body">{clean_html(LEADING_H1.sub("", d['body'], count=1))}</article>
     {others_html}
   </div>
 </section>
 """
-    title = f"{d['title']} | MoriPay · K&2P"
-    return title, ui["desc"].format(title=d["title"]), body
+    title = f"{d['title'].strip()} | {'케이앤투피 K&2P' if lang == 'ko' else 'K&2P'}"
+    return title, ui["desc"].format(title=d["title"].strip()), body
 
 
 def legal_langs(slug):
