@@ -550,7 +550,7 @@ def build_legal(lang, slug):
   </div>
 </section>
 """
-    title = f"{d['title'].strip()} | K&2P"
+    title = f"{d['title'].strip()} | {'케이앤투피 K&2P' if lang == 'ko' else 'K&2P'}"
     return title, ui["desc"].format(title=d["title"].strip()), body
 
 
