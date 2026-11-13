@@ -15,7 +15,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from content import ABOUT, COMMON, EXTRA, GUIDE, HOME, LANGS, LEGAL_DOCS, LEGAL_UI, LINE_URL, MP_BASE, SERVICES, SUPPORT_EMAIL  # noqa: E402
+from content import ABOUT, COMMON, EXTRA, GUIDE, HOME, LANGS, LEGAL_DOCS, LEGAL_UI, LINE_ID, LINE_URL, MP_BASE, SERVICES, SUPPORT_EMAIL  # noqa: E402
 from sanitize import clean_html  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -289,6 +289,7 @@ def contact_section(lang):
     {section_head(x['contact_eyebrow'], x['contact_h2'], x['contact_p'], center=True)}
     <div class="grid grid-2 contact">
       <article class="card"><div class="card-icon">{icon('chat')}</div><h3>{x['line_t']}</h3><p>{x['line_d']}</p>
+        <p class="mail">LINE ID: <a class="link" href="{LINE_URL}" target="_blank" rel="noopener">{LINE_ID}</a></p>
         <div class="hero-actions"><a class="btn btn-primary" href="{LINE_URL}" target="_blank" rel="noopener">{x['line_btn']} {icon('arrow_outward')}</a></div></article>
       <article class="card"><div class="card-icon">{icon('mail')}</div><h3>{x['mail_t']}</h3><p>{x['mail_d']}</p>
         <p class="mail"><a class="link" href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a></p>
