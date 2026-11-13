@@ -591,7 +591,8 @@ ABOUT = {
 # Legal documents live on moripay.com (rendered from microCMS). MP_BASE picks the
 # moripay.com language: ja → Japanese pages, en/ko → English pages.
 MP_BASE = {"ko": "https://moripay.com/en", "en": "https://moripay.com/en", "ja": "https://moripay.com"}
-LINE_URL = "https://lin.ee/bhjN0XX"
+LINE_URL = "https://lin.ee/XkZO9Hb"
+LINE_ID = "@moripay"
 SUPPORT_EMAIL = "info@kn2p.co.kr"
 
 EXTRA = {
