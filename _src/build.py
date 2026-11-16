@@ -43,8 +43,10 @@ def up_of(lang, page="index"):
 
 def rel(lang, target_lang, target, cur="index"):
     """Relative link from page `cur` in `lang` to page `target` in `target_lang`."""
-    file = "index.html" if target == "index" else target + ".html"
-    return up_of(lang, cur) + LANG_DIR[target_lang] + file
+    # index pages are linked as their directory ("/", "/en/") to match the canonical URL,
+    # so search engines don't see /index.html as a separate duplicate page
+    file = "" if target == "index" else target + ".html"
+    return (up_of(lang, cur) + LANG_DIR[target_lang] + file) or "./"
 
 
 def load_legal():
@@ -615,6 +617,7 @@ def write_extras():
     doc = head("ko", "index", "404 | K&2P", "페이지를 찾을 수 없습니다.") + header("ko", "index") + body404 + footer("ko")
     doc = doc.replace('<link rel="canonical" href="https://kn2p.co.kr/">', '<meta name="robots" content="noindex">')
     doc = "\n".join(l for l in doc.split("\n") if 'hreflang=' not in l or 'lang-switch' in l)
+    doc = doc.replace('href="./"', 'href="/"')
     for a in ('href="assets/', 'src="assets/', 'href="logo_', 'src="logo_', 'href="index.html', 'href="services.html', 'href="guide.html', 'href="about.html', 'href="en/', 'href="ja/', 'href="legal/'):
         doc = doc.replace(a, a.replace('="', '="/'))
     return doc
