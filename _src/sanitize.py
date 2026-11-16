@@ -28,6 +28,7 @@ ATTRS = {
     "ol": {"start", "type"},
 }
 SAFE_URL = re.compile(r"^(https?:|mailto:|tel:|#|/)", re.I)
+EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 TEXT_ALIGN = re.compile(r"text-align\s*:\s*(left|right|center|justify)", re.I)
 
 
@@ -48,6 +49,12 @@ class _Cleaner(HTMLParser):
                 continue
             if k in ("href", "src") and not SAFE_URL.match(v.strip()):
                 continue
+            if k == "href" and v.strip().lower().startswith("mailto:"):
+                # repair CMS typos such as "mailto:メールアドレス：a@b.com" → "mailto:a@b.com"
+                m = EMAIL.search(v)
+                if not m:
+                    continue
+                v = "mailto:" + m.group(0)
             if k == "style":
                 m = TEXT_ALIGN.search(v)
                 if not m:
